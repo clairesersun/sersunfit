@@ -123,7 +123,7 @@ src/
 
 ### Navigation
 
-- Hash-based routing (`#about`, `#coaching`, etc.)
+- Path-based routing (`/about`, `/coaching`, etc.)
 - Browser back/forward support
 - Smooth scroll to top on navigation
 - Conditional "Writing" nav item (only shows when blog posts exist)
@@ -133,7 +133,8 @@ src/
 - Structured data (JSON-LD) in `public/index.html`
 - Open Graph and Twitter Card meta tags
 - `public/sitemap.xml`
-- Hash-based URLs (note: hash fragments are not indexed separately by search engines)
+- Path-based URLs for proper search engine indexing
+- Vercel rewrites configured for client-side routing
 
 ---
 
