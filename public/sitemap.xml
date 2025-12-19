@@ -3,8 +3,34 @@
   ============================================
   SITEMAP.XML - Claire Sersun Fitness
   ============================================
-  Helps search engines discover and index pages
-  Update <lastmod> dates when content changes
+
+  Helps search engines discover and index pages.
+  Update <lastmod> dates when content changes.
+
+  SPA SEO STRATEGY:
+  ================
+  This is a single-page application (SPA) with hash-based navigation.
+  Hash fragments (e.g., #about) are NOT crawled as separate pages by
+  most search engines (they are ignored during indexing).
+
+  IMPLICATIONS:
+  - Only the homepage URL is truly indexable
+  - All hash-based "pages" (#about, #coaching, etc.) are treated as one page
+  - This is standard SPA behavior and acceptable for this site's goals
+
+  LONG-TERM SEO STRATEGY:
+  - Blog posts will be the primary SEO drivers
+  - When blog functionality is expanded, each post should have a unique URL
+  - Structured data in index.html provides rich snippets
+  - Social meta tags enable good sharing previews
+
+  ALTERNATIVE APPROACHES (not implemented):
+  - Server-side rendering (SSR) for true multi-page indexing
+  - Pre-rendering/static generation
+  - History API-based routing (requires server configuration)
+
+  For now, hash URLs are kept in sitemap as documentation of site structure,
+  though search engines will effectively treat this as a single-page site.
   ============================================
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -15,7 +41,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
   <!-- About Page -->
   <url>
     <loc>https://clairesersunfitness.com/#about</loc>
@@ -23,7 +49,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <!-- Coaching Page -->
   <url>
     <loc>https://clairesersunfitness.com/#coaching</loc>
@@ -31,12 +57,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- Contact Page -->
+
+  <!-- Contact Page (hash-based, see note above) -->
   <url>
     <loc>https://clairesersunfitness.com/#contact</loc>
     <lastmod>2024-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!--
+    Writing/Blog Page
+    When blog posts are added, each post should ideally have its own
+    unique URL entry for proper indexing. For now, the writing section
+    is empty and this entry serves as a placeholder.
+  -->
 </urlset>

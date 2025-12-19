@@ -4,21 +4,21 @@
   <!-- ============================================
        CLAIRE SERSUN FITNESS - HTML HEAD
        ============================================
-       
+
        This file contains all meta tags for:
        - Basic SEO (title, description)
        - Social sharing (Open Graph, Twitter Cards)
        - Structured data (JSON-LD) for rich snippets
        - Performance optimization (preconnect, fonts)
-       
+
        Last updated: December 2024
        ============================================ -->
-  
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#1a1f1a" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)" />
-  
+
   <!-- ===== BASIC SEO ===== -->
   <title>Claire Sersun Fitness | Online Strength Coaching for Women</title>
   <meta name="description" content="Personalized strength training and sustainable fitness coaching for women. Build lasting capability, confidence, and independence in your body. Serving women of all ages, including those over 60 and neurodivergent individuals." />
@@ -26,7 +26,7 @@
   <meta name="author" content="Claire Sersun" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://clairesersunfitness.com" />
-  
+
   <!-- ===== OPEN GRAPH (Facebook, LinkedIn) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Claire Sersun Fitness" />
@@ -37,34 +37,34 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
-  
+
   <!-- ===== TWITTER CARDS ===== -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Claire Sersun Fitness | Online Strength Coaching for Women" />
   <meta name="twitter:description" content="Personalized strength training and sustainable fitness coaching for women ready to build lasting capability." />
   <meta name="twitter:image" content="https://clairesersunfitness.com/twitter-image.jpg" />
-  
+
   <!-- ===== FAVICON ===== -->
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
-  
+
   <!-- ===== PWA MANIFEST ===== -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  
+
   <!-- ===== PERFORMANCE: PRECONNECT TO EXTERNAL DOMAINS ===== -->
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  
+
   <!-- ===== FONTS ===== -->
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;500&display=swap" 
-    rel="stylesheet" 
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;500&display=swap"
+    rel="stylesheet"
   />
-  
+
   <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
   <!-- Helps search engines understand page content -->
-  
+
   <!-- Organization Schema -->
   <script type="application/ld+json">
   {
@@ -85,8 +85,14 @@
     ]
   }
   </script>
-  
+
   <!-- Person Schema (Coach) -->
+  <!--
+    NOTE: URL uses hash-based routing (#about) because this is an SPA.
+    Hash fragments are not crawled as separate pages by search engines,
+    but this maintains consistency with the navigation structure.
+    Blog posts will be the primary SEO drivers when added.
+  -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -94,7 +100,7 @@
     "name": "Claire Sersun",
     "jobTitle": "Certified Personal Trainer",
     "description": "ACE Certified Personal Trainer specializing in strength training for women",
-    "url": "https://clairesersunfitness.com/about",
+    "url": "https://clairesersunfitness.com/#about",
     "sameAs": [
       "https://www.instagram.com/sersunfit/"
     ],
@@ -117,7 +123,7 @@
     ]
   }
   </script>
-  
+
   <!-- Service Schema -->
   <script type="application/ld+json">
   {
@@ -133,7 +139,7 @@
     "serviceType": "Online Personal Training"
   }
   </script>
-  
+
   <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
@@ -167,7 +173,7 @@
     ]
   }
   </script>
-  
+
   <!-- Website Schema -->
   <script type="application/ld+json">
   {
@@ -181,15 +187,15 @@
 </head>
 
 <body>
-  <!-- 
+  <!--
     ACCESSIBILITY: noscript fallback
-    Shows message if JavaScript is disabled 
+    Shows message if JavaScript is disabled
   -->
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  
-  <!-- 
+
+  <!--
     React mounts here
-    All content is rendered by JavaScript 
+    All content is rendered by JavaScript
   -->
   <div id="root"></div>
 </body>
