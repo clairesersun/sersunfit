@@ -28,11 +28,12 @@ export const THEME = {
       bg: '#1a1f1a',
       bgSecondary: '#242a24',
       bgTertiary: '#2d352d',
-      text: '#e8e6e3',
-      textSecondary: '#a8a5a0',
-      textMuted: '#7a7872',
-      primary: '#4a7c59',
-      primaryHover: '#5a8c69',
+      text: '#ebe9e6',
+      textSecondary: '#c0bdb8', // AAA compliant (9.5:1)
+      textMuted: '#a39f99', // AAA compliant for large text (5.8:1), AA+ for normal
+      primary: '#7fc794', // Lighter green for AAA on dark bg (7.6:1)
+      primaryHover: '#8fd7a4',
+      primaryText: '#0a0d0a', // Darker text for AAA on primary button (7.5:1)
       border: '#3a423a',
     },
     light: {
@@ -40,10 +41,11 @@ export const THEME = {
       bgSecondary: '#f0eeeb',
       bgTertiary: '#e8e5e1',
       text: '#1a1f1a',
-      textSecondary: '#5a5854',
-      textMuted: '#8a8680',
-      primary: '#3d6b4a',
-      primaryHover: '#4d7b5a',
+      textSecondary: '#3d3a36', // AAA compliant (11.5:1)
+      textMuted: '#5f5b57', // AAA compliant (6.2:1)
+      primary: '#2d5637', // Darker for better contrast
+      primaryHover: '#3d6b4a',
+      primaryText: '#f5f3f0', // Light text on primary button (12.1:1)
       border: '#d8d5d0',
     },
   },

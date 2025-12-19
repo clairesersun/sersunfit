@@ -316,7 +316,7 @@ const Navigation = ({
                   style={{
                     width: '22px',
                     height: '22px',
-                    backgroundColor: '#fff',
+                    backgroundColor: '#fafafa',
                     borderRadius: '50%',
                     display: 'flex',
                     alignItems: 'center',
@@ -344,7 +344,7 @@ const Navigation = ({
                       height="12"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#f59e0b"
+                      stroke="#d97706"
                       strokeWidth="2.5"
                       aria-hidden="true"
                     >

@@ -242,7 +242,7 @@ export const getGlobalStyles = ({ theme, isDarkMode, prefersReducedMotion, shoul
     top: -40px;
     left: 0;
     background: ${theme.primary};
-    color: white;
+    color: ${theme.primaryText};
     padding: 8px 16px;
     z-index: ${THEME.zIndex.skipLink};
     text-decoration: none;

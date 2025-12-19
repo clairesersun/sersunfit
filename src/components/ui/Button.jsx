@@ -129,7 +129,7 @@ const Button = ({
     ? {
         ...baseStyles,
         backgroundColor: theme.primary,
-        color: '#fff',
+        color: theme.primaryText,
       }
     : {
         ...baseStyles,
