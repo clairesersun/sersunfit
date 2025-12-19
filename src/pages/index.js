@@ -6,14 +6,14 @@
  * Central export for pages and simple routing helpers.
  *
  * ROUTING STRATEGY:
- * This is a single-page application with hash-based navigation.
- * The URL hash (e.g., #about) syncs with the current page state.
+ * This is a single-page application with path-based navigation.
+ * The URL path (e.g., /about) syncs with the current page state.
  * This enables browser back/forward navigation while maintaining
  * the SPA experience.
  *
  * SEO NOTE:
- * Hash fragments are not crawled as separate pages by most search engines.
- * The main SEO strategy relies on:
+ * Path-based URLs are properly crawled by search engines.
+ * Combined with:
  * - Rich structured data in index.html
  * - Blog posts (when added) as the primary SEO drivers
  * - Strong social sharing meta tags
@@ -62,36 +62,36 @@ export const DEFAULT_PAGE = 'home';
 export const isValidPage = (pageId) => VALID_PAGES.includes(pageId);
 
 /**
- * Gets page ID from URL hash
- * Returns default page if hash is invalid or empty
+ * Gets page ID from URL path
+ * Returns default page if path is invalid or root
  *
  * @returns {string} Valid page ID
  */
-export const getPageFromHash = () => {
+export const getPageFromPath = () => {
   if (typeof window === 'undefined') return DEFAULT_PAGE;
 
-  const hash = window.location.hash.slice(1); // Remove #
-  return isValidPage(hash) ? hash : DEFAULT_PAGE;
+  const path = window.location.pathname.slice(1); // Remove leading /
+  return isValidPage(path) ? path : DEFAULT_PAGE;
 };
 
 /**
- * Sets URL hash to page ID
+ * Sets URL path to page ID
  * Uses replaceState to avoid polluting history for initial load
  *
  * @param {string} pageId - Page ID to set
  * @param {boolean} [replace=false] - Use replaceState instead of pushState
  */
-export const setHashForPage = (pageId, replace = false) => {
+export const setPathForPage = (pageId, replace = false) => {
   if (typeof window === 'undefined') return;
 
-  const newHash = pageId === DEFAULT_PAGE ? '' : `#${pageId}`;
+  const newPath = pageId === DEFAULT_PAGE ? '/' : `/${pageId}`;
 
   if (replace) {
     // Replace current history entry (used for initial load)
-    window.history.replaceState(null, '', newHash || window.location.pathname);
+    window.history.replaceState(null, '', newPath);
   } else {
     // Push new history entry (used for navigation)
-    window.history.pushState(null, '', newHash || window.location.pathname);
+    window.history.pushState(null, '', newPath);
   }
 };
 

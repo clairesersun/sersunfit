@@ -7,14 +7,14 @@
  * It handles:
  * - Theme management (dark/light mode)
  * - Global styles injection
- * - Navigation state with URL hash syncing
+ * - Navigation state with URL path syncing
  * - Rendering current page
  *
  * ARCHITECTURE:
  * - App.jsx is the single entry point
  * - All content/config/themes are imported from modules
  * - Pages are rendered based on state
- * - Hash-based routing enables back/forward navigation
+ * - Path-based routing enables back/forward navigation
  *
  * ACCESSIBILITY:
  * - Skip link for keyboard navigation
@@ -22,7 +22,7 @@
  * - Focus management on navigation
  *
  * SEO:
- * - Hash-based URLs sync with navigation
+ * - Path-based URLs for better SEO
  * - Structured data in index.html
  * - Meta tags for social sharing
  *
@@ -45,8 +45,8 @@ import { ScrollProgress } from './components/animation';
 // Pages & Routing
 import {
   renderPage,
-  getPageFromHash,
-  setHashForPage,
+  getPageFromPath,
+  setPathForPage,
   isValidPage,
   DEFAULT_PAGE,
 } from './pages';
@@ -84,39 +84,35 @@ export default function App() {
   }, [isDarkMode]);
 
   /**
-   * Initialize current page from URL hash
-   * Falls back to DEFAULT_PAGE if hash is invalid
+   * Initialize current page from URL path
+   * Falls back to DEFAULT_PAGE if path is invalid
    */
-  const [currentPage, setCurrentPage] = useState(() => getPageFromHash());
+  const [currentPage, setCurrentPage] = useState(() => getPageFromPath());
 
   /**
-   * Handle browser back/forward navigation and initial hash sync
-   * Updates page state when hash changes externally
+   * Handle browser back/forward navigation and initial path sync
+   * Updates page state when path changes externally
    */
   useEffect(() => {
-    // Sync initial hash with state (replaces, doesn't push history)
-    setHashForPage(getPageFromHash(), true);
+    // Sync initial path with state (replaces, doesn't push history)
+    setPathForPage(getPageFromPath(), true);
 
-    const handleHashChange = () => {
-      const pageFromHash = getPageFromHash();
-      setCurrentPage(pageFromHash);
+    const handlePathChange = () => {
+      const pageFromPath = getPageFromPath();
+      setCurrentPage(pageFromPath);
     };
 
-    // Listen for hash changes (back/forward buttons)
-    window.addEventListener('hashchange', handleHashChange);
-
-    // Also handle popstate for complete history support
-    window.addEventListener('popstate', handleHashChange);
+    // Listen for popstate (back/forward buttons)
+    window.addEventListener('popstate', handlePathChange);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('popstate', handleHashChange);
+      window.removeEventListener('popstate', handlePathChange);
     };
   }, []);
 
   /**
    * Navigate to a new page
-   * Updates state, URL hash, and scrolls to top
+   * Updates state, URL path, and scrolls to top
    *
    * @param {string} page - Page ID to navigate to
    */
@@ -131,8 +127,8 @@ export default function App() {
       // Update state
       setCurrentPage(page);
 
-      // Update URL hash (pushes to history)
-      setHashForPage(page);
+      // Update URL path (pushes to history)
+      setPathForPage(page);
 
       // Scroll to top
       window.scrollTo({
