@@ -1,0 +1,15 @@
+# ============================================
+# ROBOTS.TXT - Claire Sersun Fitness
+# ============================================
+# Instructions for search engine crawlers
+# ============================================
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://clairesersunfitness.com/sitemap.xml
+
+# Crawl delay (be nice to the server)
+Crawl-delay: 1
