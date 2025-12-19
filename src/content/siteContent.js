@@ -160,7 +160,7 @@ const CONTENT = {
       paragraphs: [
         "I've spent over a decade studying how bodies move, adapt, and grow stronger. My path started in dance and kinesiology, expanded through Pilates and yoga certification, and ultimately led me to evidence-based strength training.",
         "What sets my approach apart is the integration of somatic awareness with progressive strength training. I don't just tell you what exercises to do—I help you understand your body from the inside out, building the kind of body knowledge that stays with you long after our work together ends.",
-        "I work primarily with women across all life stages, with particular expertise in supporting neurodivergent clients, women over 60, and anyone who's felt intimidated or excluded by traditional fitness spaces.",
+        "I work primarily with women across all life stages, with particular expertise in supporting neurodivergent clients, women over 40, and anyone who's felt intimidated or excluded by traditional fitness spaces.",
       ],
     },
     background: {
