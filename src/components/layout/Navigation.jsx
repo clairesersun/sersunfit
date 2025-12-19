@@ -4,6 +4,7 @@
  * ============================================
  *
  * Main navigation header with responsive mobile menu.
+ * Uses BEM methodology for styling.
  *
  * FEATURES:
  * - Fixed position with blur backdrop
@@ -24,10 +25,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { THEME } from '../../styles/theme';
 import CONTENT from '../../content/siteContent';
 import { hasBlogContent } from '../../content/blogPosts';
-import useIsMobile from '../../hooks/useIsMobile';
 
 /**
  * Navigation - Main site header and navigation
@@ -35,22 +34,17 @@ import useIsMobile from '../../hooks/useIsMobile';
  * Props:
  * @param {string} currentPage - Active page ID
  * @param {Function} onNavigate - Navigation callback
- * @param {Object} theme - Active theme object
  * @param {boolean} isDarkMode - Current theme mode
  * @param {Function} onToggleTheme - Theme toggle callback
- * @param {boolean} prefersReducedMotion - User's motion preference
  */
 const Navigation = ({
   currentPage,
   onNavigate,
-  theme,
   isDarkMode,
   onToggleTheme,
-  prefersReducedMotion,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isMobile = useIsMobile();
 
   // Track scroll position for background opacity
   useEffect(() => {
@@ -71,69 +65,16 @@ const Navigation = ({
     setMobileMenuOpen(false);
   };
 
-  const navLinkStyle = (isActive) => ({
-    fontFamily: THEME.fonts.ui,
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    letterSpacing: '0.04em',
-    textTransform: 'uppercase',
-    color: isActive ? theme.primary : theme.textSecondary,
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    padding: '0.5rem 0',
-    transition: prefersReducedMotion ? 'none' : 'color 0.3s ease',
-    position: 'relative',
-  });
-
   return (
     <nav
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: THEME.zIndex.nav,
-        backgroundColor: scrolled
-          ? isDarkMode
-            ? 'rgba(26, 31, 26, 0.98)'
-            : 'rgba(250, 249, 247, 0.98)'
-          : isDarkMode
-          ? 'rgba(26, 31, 26, 0.8)'
-          : 'rgba(250, 249, 247, 0.8)',
-        backdropFilter: 'blur(20px)',
-        borderBottom: scrolled
-          ? `1px solid ${theme.border}`
-          : '1px solid transparent',
-        transition: prefersReducedMotion ? 'none' : 'all 0.3s ease',
-      }}
+      className={`nav ${scrolled ? 'nav--scrolled' : ''}`}
       role="navigation"
       aria-label="Main navigation"
     >
-      <div
-        style={{
-          maxWidth: THEME.maxWidth.full,
-          margin: '0 auto',
-          padding: '1rem 1.5rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
+      <div className="nav__container">
         {/* Logo/Home button */}
         <button
-          style={{
-            fontFamily: THEME.fonts.display,
-            fontSize: '1.25rem',
-            fontWeight: 600,
-            letterSpacing: '0.02em',
-            color: theme.text,
-            cursor: 'pointer',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            transition: prefersReducedMotion ? 'none' : 'transform 0.3s ease',
-          }}
+          className="nav__logo"
           onClick={() => handleNavClick('home')}
           aria-label={`${CONTENT.navigation.logo} - Home`}
         >
@@ -141,14 +82,11 @@ const Navigation = ({
         </button>
 
         {/* Desktop navigation */}
-        <div
-          className="desktop-nav"
-          style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}
-        >
+        <div className="nav__menu">
           {visibleNavItems.map((item) => (
             <button
               key={item.id}
-              style={navLinkStyle(currentPage === item.id)}
+              className={`nav__link ${currentPage === item.id ? 'nav__link--active' : ''}`}
               onClick={() => handleNavClick(item.id)}
               aria-current={currentPage === item.id ? 'page' : undefined}
             >
@@ -158,19 +96,7 @@ const Navigation = ({
 
           {/* Theme toggle */}
           <button
-            style={{
-              background: 'none',
-              border: `1px solid ${theme.border}`,
-              borderRadius: THEME.borderRadius.full,
-              width: '2.5rem',
-              height: '2.5rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: theme.textSecondary,
-              transition: prefersReducedMotion ? 'none' : 'all 0.3s ease',
-            }}
+            className="nav__theme-toggle"
             onClick={onToggleTheme}
             aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
@@ -205,17 +131,7 @@ const Navigation = ({
 
         {/* Mobile menu button */}
         <button
-          className="mobile-menu-btn"
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            color: theme.text,
-            cursor: 'pointer',
-            padding: '0.5rem',
-            minWidth: THEME.touchTarget,
-            minHeight: THEME.touchTarget,
-          }}
+          className="nav__mobile-btn"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
@@ -241,26 +157,11 @@ const Navigation = ({
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          className="mobile-menu"
-          style={{
-            position: 'fixed',
-            top: '65px',
-            left: 0,
-            right: 0,
-            backgroundColor: theme.bg,
-            borderBottom: `1px solid ${theme.border}`,
-            padding: '1.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-          }}
-        >
+        <div id="mobile-menu" className="nav__mobile-menu">
           {visibleNavItems.map((item) => (
             <button
               key={item.id}
-              style={navLinkStyle(currentPage === item.id)}
+              className={`nav__link ${currentPage === item.id ? 'nav__link--active' : ''}`}
               onClick={() => handleNavClick(item.id)}
             >
               {item.label}
@@ -268,71 +169,24 @@ const Navigation = ({
           ))}
 
           {/* Mobile theme toggle */}
-          <div
-            style={{
-              marginTop: '1rem',
-              paddingTop: '1.5rem',
-              borderTop: `1px solid ${theme.border}`,
-            }}
-          >
+          <div className="nav__mobile-theme">
             <button
               onClick={onToggleTheme}
               aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                width: '100%',
-                padding: '0.75rem 1rem',
-                backgroundColor: theme.bgTertiary,
-                border: 'none',
-                borderRadius: THEME.borderRadius.md,
-                cursor: 'pointer',
-                minHeight: THEME.touchTarget,
-              }}
+              className="nav__mobile-theme-btn"
             >
-              <span
-                style={{
-                  fontFamily: THEME.fonts.ui,
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  color: theme.textSecondary,
-                }}
-              >
+              <span className="nav__mobile-theme-label">
                 {isDarkMode ? 'Dark Mode' : 'Light Mode'}
               </span>
-              <div
-                style={{
-                  width: '48px',
-                  height: '26px',
-                  backgroundColor: isDarkMode ? theme.primary : theme.border,
-                  borderRadius: '13px',
-                  padding: '2px',
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    width: '22px',
-                    height: '22px',
-                    backgroundColor: '#fafafa',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    transform: isDarkMode ? 'translateX(22px)' : 'translateX(0)',
-                    transition: prefersReducedMotion ? 'none' : 'transform 0.3s ease',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
-                  }}
-                >
+              <div className="nav__toggle-switch">
+                <div className="nav__toggle-knob">
                   {isDarkMode ? (
                     <svg
                       width="12"
                       height="12"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke={theme.primary}
+                      stroke="var(--color-primary)"
                       strokeWidth="2.5"
                       aria-hidden="true"
                     >

@@ -1,0 +1,36 @@
+/**
+ * ============================================
+ * MAIN STYLESHEET
+ * ============================================
+ *
+ * Import order matters:
+ * 1. Variables (CSS custom properties)
+ * 2. Base styles and reset
+ * 3. Typography
+ * 4. Utilities
+ * 5. Components
+ *
+ * ============================================
+ */
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;500&display=swap');
+
+/* 1. Variables */
+@import './variables.css';
+
+/* 2. Base styles */
+@import './base.css';
+
+/* 3. Typography */
+@import './typography.css';
+
+/* 4. Utilities */
+@import './utilities.css';
+
+/* 5. Components */
+@import '../components/layout/Navigation.css';
+@import '../components/layout/Footer.css';
+@import '../components/ui/Button.css';
+@import '../components/ui/Card.css';
+@import '../components/animation/ScrollProgress.css';

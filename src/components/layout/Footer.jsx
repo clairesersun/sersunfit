@@ -4,6 +4,7 @@
  * ============================================
  *
  * Site footer with brand info, navigation, and social links.
+ * Uses BEM methodology for styling.
  *
  * STRUCTURE:
  * - Brand name and tagline
@@ -16,7 +17,6 @@
  */
 
 import React from 'react';
-import { THEME } from '../../styles/theme';
 import CONTENT from '../../content/siteContent';
 import CONFIG from '../../config/config';
 import { hasBlogContent } from '../../content/blogPosts';
@@ -27,9 +27,8 @@ import RevealOnScroll from '../animation/RevealOnScroll';
  *
  * Props:
  * @param {Function} onNavigate - Navigation callback
- * @param {Object} theme - Active theme object
  */
-const Footer = ({ onNavigate, theme }) => {
+const Footer = ({ onNavigate }) => {
   const year = new Date().getFullYear();
   const c = CONTENT.footer;
 
@@ -39,79 +38,29 @@ const Footer = ({ onNavigate, theme }) => {
   );
 
   return (
-    <footer
-      className="texture-overlay"
-      style={{
-        backgroundColor: theme.bgSecondary,
-        borderTop: `1px solid ${theme.border}`,
-        padding: '4rem 1.5rem 2rem',
-        position: 'relative',
-      }}
-    >
+    <footer className="footer texture-overlay">
       <RevealOnScroll animation="fade">
-        <div
-          style={{
-            maxWidth: THEME.maxWidth.full,
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem',
-          }}
-        >
+        <div className="footer__grid">
           {/* Brand column */}
-          <div>
-            <p
-              style={{
-                fontFamily: THEME.fonts.display,
-                fontSize: '1.25rem',
-                fontWeight: 600,
-                marginBottom: '1rem',
-                color: theme.text,
-              }}
-            >
+          <div className="footer__column">
+            <p className="footer__brand-name">
               {c.brand.name}
             </p>
-            <p
-              style={{
-                fontFamily: THEME.fonts.body,
-                fontSize: '0.875rem',
-                color: theme.textSecondary,
-                lineHeight: 1.7,
-              }}
-            >
+            <p className="footer__brand-tagline">
               {c.brand.tagline}
             </p>
           </div>
 
           {/* Navigation column */}
-          <div>
-            <p
-              style={{
-                fontFamily: THEME.fonts.ui,
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: theme.primary,
-                marginBottom: '1rem',
-              }}
-            >
+          <div className="footer__column">
+            <p className="footer__section-title">
               {c.navigation.label}
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className="footer__nav-list">
               {visibleNavItems.map((item) => (
                 <button
                   key={item.id}
-                  style={{
-                    fontFamily: THEME.fonts.ui,
-                    fontSize: '0.875rem',
-                    color: theme.textSecondary,
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    padding: 0,
-                  }}
+                  className="footer__nav-link"
                   onClick={() => onNavigate(item.id)}
                 >
                   {item.label}
@@ -121,33 +70,15 @@ const Footer = ({ onNavigate, theme }) => {
           </div>
 
           {/* Connect column */}
-          <div>
-            <p
-              style={{
-                fontFamily: THEME.fonts.ui,
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: theme.primary,
-                marginBottom: '1rem',
-              }}
-            >
+          <div className="footer__column">
+            <p className="footer__section-title">
               {c.connect.label}
             </p>
             <a
               href={CONFIG.urls.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontFamily: THEME.fonts.ui,
-                fontSize: '0.875rem',
-                color: theme.textSecondary,
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-              }}
+              className="footer__social-link"
             >
               <svg
                 width="16"
@@ -168,22 +99,8 @@ const Footer = ({ onNavigate, theme }) => {
         </div>
 
         {/* Copyright */}
-        <div
-          style={{
-            maxWidth: THEME.maxWidth.full,
-            margin: '3rem auto 0',
-            paddingTop: '2rem',
-            borderTop: `1px solid ${theme.border}`,
-            textAlign: 'center',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: THEME.fonts.body,
-              fontSize: '0.75rem',
-              color: theme.textMuted,
-            }}
-          >
+        <div className="footer__copyright-container">
+          <p className="footer__copyright">
             {c.copyright.replace('{year}', year)}
           </p>
         </div>

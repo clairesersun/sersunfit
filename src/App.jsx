@@ -33,8 +33,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 // Styles
-import { THEME } from './styles/theme';
-import { getGlobalStyles } from './styles/globalStyles';
+import './styles/main.css';
 
 // Hooks
 import { useTheme, useReducedMotion, useIsMobile } from './hooks';
@@ -72,6 +71,17 @@ export default function App() {
 
   // Whether animations should be enabled
   const shouldAnimate = !prefersReducedMotion && !isMobile;
+
+  /**
+   * Update data-theme attribute when theme changes
+   * This enables CSS custom properties to switch themes
+   */
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      'data-theme',
+      isDarkMode ? 'dark' : 'light'
+    );
+  }, [isDarkMode]);
 
   /**
    * Initialize current page from URL hash
@@ -134,16 +144,6 @@ export default function App() {
   );
 
   /**
-   * Generate global styles with current theme values
-   */
-  const globalStyles = getGlobalStyles({
-    theme,
-    isDarkMode,
-    prefersReducedMotion,
-    shouldAnimate,
-  });
-
-  /**
    * Props passed to all page components
    * Avoids prop drilling of common values
    */
@@ -155,24 +155,9 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        backgroundColor: theme.bg,
-        color: theme.text,
-        fontFamily: THEME.fonts.body,
-        transition: prefersReducedMotion
-          ? 'none'
-          : `background-color ${THEME.transition.slow}, color ${THEME.transition.slow}`,
-        lineHeight: 1.7,
-        overflowX: 'hidden',
-      }}
-    >
-      {/* Global styles injection */}
-      <style>{globalStyles}</style>
-
+    <>
       {/* Scroll progress bar (desktop only, respects reduced motion) */}
-      <ScrollProgress theme={theme} />
+      <ScrollProgress />
 
       {/* Skip link for keyboard navigation (WCAG 2.2) */}
       <a href="#main-content" className="skip-link">
@@ -183,17 +168,15 @@ export default function App() {
       <Navigation
         currentPage={currentPage}
         onNavigate={navigate}
-        theme={theme}
         isDarkMode={isDarkMode}
         onToggleTheme={toggleTheme}
-        prefersReducedMotion={prefersReducedMotion}
       />
 
       {/* Current page content */}
       {renderPage(currentPage, pageProps)}
 
       {/* Footer */}
-      <Footer onNavigate={navigate} theme={theme} />
-    </div>
+      <Footer onNavigate={navigate} />
+    </>
   );
 }

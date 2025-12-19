@@ -1,0 +1,25 @@
+/**
+ * ============================================
+ * CARD COMPONENT
+ * ============================================
+ *
+ * BEM Structure:
+ * - card (block)
+ *
+ * ============================================
+ */
+
+.card {
+  background-color: var(--color-bg-secondary);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Hover effect (desktop only) */
+@media (min-width: 769px) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+}

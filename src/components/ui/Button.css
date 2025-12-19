@@ -1,0 +1,66 @@
+/**
+ * ============================================
+ * BUTTON COMPONENT
+ * ============================================
+ *
+ * BEM Structure:
+ * - btn (block)
+ * - btn--primary (modifier)
+ * - btn--secondary (modifier)
+ * - btn__content (element)
+ *
+ * ============================================
+ */
+
+/* ============================================
+ * BTN BLOCK (BASE STYLES)
+ * ============================================ */
+.btn {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  text-transform: uppercase;
+  padding: var(--space-md) 2.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  min-height: var(--touch-target-min);
+  transition: var(--transition-smooth);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ============================================
+ * PRIMARY BUTTON
+ * ============================================ */
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+  border: none;
+}
+
+/* ============================================
+ * SECONDARY BUTTON
+ * ============================================ */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+/* ============================================
+ * BUTTON CONTENT
+ * ============================================ */
+.btn__content {
+  position: relative;
+  z-index: 1;
+}

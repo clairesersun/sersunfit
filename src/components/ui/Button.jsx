@@ -5,6 +5,7 @@
  *
  * Primary and secondary button variants with magnetic hover effect.
  * Supports both link and button behaviors.
+ * Uses BEM methodology for styling.
  *
  * ACCESSIBILITY:
  * - Minimum 44px touch target (WCAG 2.2)
@@ -16,7 +17,6 @@
  */
 
 import React, { useRef, useState } from 'react';
-import { THEME } from '../../styles/theme';
 import useReducedMotion from '../../hooks/useReducedMotion';
 import useIsMobile from '../../hooks/useIsMobile';
 
@@ -24,7 +24,7 @@ import useIsMobile from '../../hooks/useIsMobile';
  * MagneticButton - Internal button with cursor-following effect
  * The button slightly moves toward the cursor position on hover.
  */
-const MagneticButton = ({ children, style = {}, ...props }) => {
+const MagneticButton = ({ children, className, ...props }) => {
   const buttonRef = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const prefersReducedMotion = useReducedMotion();
@@ -48,10 +48,10 @@ const MagneticButton = ({ children, style = {}, ...props }) => {
   return (
     <button
       ref={buttonRef}
+      className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        ...style,
         transform: `translate(${position.x}px, ${position.y}px)`,
         transition: position.x === 0 ? 'transform 0.3s ease' : 'none',
       }}
@@ -70,28 +70,16 @@ const MagneticButton = ({ children, style = {}, ...props }) => {
  * @param {string} [href] - If provided, renders as anchor tag
  * @param {Function} [onClick] - Click handler (for button variant)
  * @param {React.ReactNode} children - Button content
- * @param {Object} theme - Active theme object
- * @param {boolean} prefersReducedMotion - User's motion preference
  * @param {string} [ariaLabel] - Accessible label for button
  *
  * @example
  * // Primary button
- * <Button
- *   variant="primary"
- *   href="https://example.com"
- *   theme={theme}
- *   prefersReducedMotion={prefersReducedMotion}
- * >
+ * <Button variant="primary" href="https://example.com">
  *   Apply Now
  * </Button>
  *
  * // Secondary button with click handler
- * <Button
- *   variant="secondary"
- *   onClick={() => navigate('about')}
- *   theme={theme}
- *   prefersReducedMotion={prefersReducedMotion}
- * >
+ * <Button variant="secondary" onClick={() => navigate('about')}>
  *   Learn More
  * </Button>
  */
@@ -100,46 +88,12 @@ const Button = ({
   href,
   onClick,
   children,
-  theme,
-  prefersReducedMotion,
   ariaLabel,
 }) => {
-  const baseStyles = {
-    fontFamily: THEME.fonts.ui,
-    fontSize: '0.875rem',
-    fontWeight: 600,
-    letterSpacing: '0.1em',
-    textTransform: 'uppercase',
-    padding: '1rem 2.5rem',
-    cursor: 'pointer',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.75rem',
-    textDecoration: 'none',
-    minHeight: THEME.touchTarget,
-    transition: prefersReducedMotion ? 'none' : 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-    border: 'none',
-    borderRadius: THEME.borderRadius.lg,
-    position: 'relative',
-    overflow: 'hidden',
-  };
-
-  const variantStyles = variant === 'primary'
-    ? {
-        ...baseStyles,
-        backgroundColor: theme.primary,
-        color: theme.primaryText,
-      }
-    : {
-        ...baseStyles,
-        backgroundColor: 'transparent',
-        color: theme.text,
-        border: `1px solid ${theme.border}`,
-      };
+  const className = `btn btn--${variant}`;
 
   const content = (
-    <span style={{ position: 'relative', zIndex: 1 }}>
+    <span className="btn__content">
       {children}
     </span>
   );
@@ -151,7 +105,7 @@ const Button = ({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        style={variantStyles}
+        className={className}
         aria-label={ariaLabel}
       >
         {content}
@@ -163,7 +117,7 @@ const Button = ({
   return (
     <MagneticButton
       onClick={onClick}
-      style={variantStyles}
+      className={className}
       aria-label={ariaLabel}
     >
       {content}

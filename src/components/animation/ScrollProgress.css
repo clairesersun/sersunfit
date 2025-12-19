@@ -1,0 +1,15 @@
+/**
+ * ============================================
+ * SCROLL PROGRESS COMPONENT
+ * ============================================
+ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--color-primary);
+  z-index: var(--z-index-scroll-progress);
+  transition: width 0.1s linear;
+}

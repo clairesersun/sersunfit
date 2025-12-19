@@ -1,0 +1,80 @@
+/**
+ * ============================================
+ * TYPOGRAPHY
+ * ============================================
+ *
+ * Reusable typography classes for headings,
+ * body text, and labels.
+ *
+ * ============================================
+ */
+
+/* ============================================
+ * LABELS
+ * ============================================ */
+.label {
+  font-family: var(--font-ui);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+/* ============================================
+ * HEADINGS
+ * ============================================ */
+.heading-hero {
+  font-family: var(--font-display);
+  font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
+  font-weight: var(--font-weight-light);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.heading-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-snug);
+  letter-spacing: var(--letter-spacing-normal);
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.heading-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--font-size-2xl), 3vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+/* ============================================
+ * BODY TEXT
+ * ============================================ */
+.body-large {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+}
+
+.body-small {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+}
