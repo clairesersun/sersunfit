@@ -57,21 +57,28 @@ src/
 │   │   ├── Card.css           # Card styles
 │   │   ├── Divider.jsx        # Decorative horizontal rule
 │   │   ├── OrganicShape.jsx   # Decorative SVG blobs
-│   │   └── ApproachIcons.jsx  # Custom SVG icons
+│   │   ├── ApproachIcons.jsx  # Approach section SVG icons
+│   │   ├── CoachingIcons.jsx  # Coaching page SVG icons
+│   │   ├── KilimanjaroIcons.jsx # Kilimanjaro page SVG icons
+│   │   ├── PhilosophyIcons.jsx  # Philosophy section SVG icons
+│   │   └── ThemeIcons.jsx     # Dark/light mode toggle icons
 │   └── layout/
 │       ├── index.js           # Layout component exports
 │       ├── Navigation.jsx     # Header with responsive menu
 │       ├── Navigation.css     # Navigation styles
 │       ├── Footer.jsx         # Site footer
 │       └── Footer.css         # Footer styles
-└── pages/
-    ├── index.js               # Page routing helpers + exports
-    ├── styles.js              # Shared typography styles
-    ├── Home.jsx               # Landing page
-    ├── About.jsx              # Bio and philosophy
-    ├── Coaching.jsx           # Program details + application
-    ├── Contact.jsx            # Contact information
-    └── Writing.jsx            # Blog posts (SEO foundation)
+├── pages/
+│   ├── index.js               # Page routing helpers + exports
+│   ├── styles.js              # Shared typography styles
+│   ├── Home.jsx               # Landing page
+│   ├── About.jsx              # Bio and philosophy
+│   ├── Coaching.jsx           # Program details + application
+│   ├── Contact.jsx            # Contact information
+│   ├── Resources.jsx          # Training guides & digital products
+│   └── Kilimanjaro.jsx        # Kilimanjaro Training Blueprint product page
+└── utils/
+    └── seo.js                 # SEO utilities for page meta updates
 ```
 
 ---
@@ -103,7 +110,7 @@ src/
 
 ### Navigation
 
-- Path-based routing (`/about`, `/coaching`, etc.)
+- Path-based routing (`/about`, `/coaching`, `/resources`, `/kilimanjaro-training-plan`, etc.)
 - Browser back/forward support
 - Smooth scroll to top on navigation
 
@@ -113,11 +120,28 @@ src/
 - Open Graph and Twitter Card meta tags
 - `public/sitemap.xml`
 - Path-based URLs for proper search engine indexing
+- SEO-optimized product pages (e.g., Kilimanjaro Training Blueprint)
 - Vercel rewrites configured for client-side routing
 
 ---
 
+## Pages
+
+### Core Pages
+- **Home** - Landing page with hero, audience targeting, transformation benefits, and approach
+- **About** - Bio, background, certifications, and coaching philosophy
+- **Coaching** - Program details, process steps, and embedded application form
+- **Contact** - Contact methods and social links
+- **Resources** - Training guides and digital products hub
+
+### Product Pages
+- **Kilimanjaro Training Blueprint** (`/kilimanjaro-training-plan`) - SEO-optimized landing page for the $17 digital training guide
+
+---
+
 ## Adding Blog Posts
+
+The blog post system exists in `src/content/blogPosts.js` for future SEO content. When posts are added, they can be displayed on the Resources page.
 
 Edit `src/content/blogPosts.js` and add posts to the `BLOG_POSTS` array:
 
@@ -133,8 +157,6 @@ const BLOG_POSTS = [
   },
 ];
 ```
-
-The "Writing" nav item will automatically appear when posts are added.
 
 ---
 
@@ -249,13 +271,13 @@ Pages to build:
 • Home
 • About
 • Coaching / Program Overview + Application (combined)
-• Blog / Writing (SEO + GEO focused)
+• Resources (digital products + training guides)
+• Kilimanjaro Training Blueprint (SEO product page)
 • Contact
 
 Navigation behavior:
-• Blog appears only if posts exist
-• Hidden otherwise
-• Blog URLs remain indexable
+• Resources page displays training guides and digital products
+• Product pages (like Kilimanjaro) are SEO-optimized landing pages
 
 Explicitly exclude:
 • Ecommerce-style layouts
