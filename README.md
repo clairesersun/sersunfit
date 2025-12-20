@@ -106,7 +106,6 @@ src/
 - Path-based routing (`/about`, `/coaching`, etc.)
 - Browser back/forward support
 - Smooth scroll to top on navigation
-- Conditional "Writing" nav item (only shows when blog posts exist)
 
 ### SEO
 
