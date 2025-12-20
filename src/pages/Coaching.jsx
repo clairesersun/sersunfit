@@ -22,7 +22,7 @@ import {
   ParallaxSection,
 } from '../components/animation';
 
-import { Button, Card, Divider, OrganicShape } from '../components/ui';
+import { Button, Card, Divider, OrganicShape, CoachingIcons } from '../components/ui';
 
 /**
  * CoachingPage - Program details and application
@@ -109,17 +109,45 @@ const CoachingPage = ({ theme, isDarkMode, prefersReducedMotion }) => {
               marginTop: '2rem',
             }}
           >
-            {c.includes.items.map((item, i) => (
-              <Card
-                key={i}
-                theme={theme}
-                index={i}
-                style={{ borderRadius: THEME.borderRadius.lg }}
-              >
-                <h3 style={{ ...s.h3, fontSize: '1.25rem' }}>{item.title}</h3>
-                <p style={s.body}>{item.description}</p>
-              </Card>
-            ))}
+            {c.includes.items.map((item, i) => {
+              const Icon = CoachingIcons[item.id];
+              return (
+                <RevealOnScroll key={item.id} animation="slideRight" delay={i * 150}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '1.5rem',
+                      alignItems: 'flex-start',
+                      padding: '1.5rem',
+                      backgroundColor: theme.background,
+                      borderRadius: THEME.borderRadius.lg,
+                      border: `1px solid ${theme.primary}15`,
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: THEME.borderRadius.full,
+                        backgroundColor: theme.primary + '15',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {Icon && <Icon color={theme.primary} />}
+                    </div>
+                    <div style={{ flex: 1, minWidth: '250px' }}>
+                      <h3 style={{ ...s.h3, fontSize: '1.25rem', marginBottom: '0.5rem' }}>
+                        {item.title}
+                      </h3>
+                      <p style={s.body}>{item.description}</p>
+                    </div>
+                  </div>
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -145,10 +173,9 @@ const CoachingPage = ({ theme, isDarkMode, prefersReducedMotion }) => {
                     style={{
                       fontFamily: THEME.fonts.display,
                       fontSize: '3rem',
-                      color: theme.primary,
+                      color: theme.primaryMuted,
                       lineHeight: 1,
                       minWidth: '70px',
-                      opacity: 0.5,
                     }}
                   >
                     {step.number}

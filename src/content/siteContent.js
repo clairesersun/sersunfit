@@ -26,8 +26,8 @@ const CONTENT = {
       { id: 'home', label: 'Home' },
       { id: 'about', label: 'About' },
       { id: 'coaching', label: 'Coaching' },
+      { id: 'resources', label: 'Resources' },
       { id: 'contact', label: 'Contact' },
-      { id: 'writing', label: 'Writing', requiresBlogContent: true },
     ],
   },
 
@@ -65,7 +65,7 @@ const CONTENT = {
           description: "Traditional fitness approaches haven't worked for your brain. You need structure that's flexible, accountability that's supportive, not punishing.",
         },
         {
-          title: "If you're over 60",
+          title: "If you're over 40",
           description: 'You want to maintain your independence, prevent falls, stay active with the people you love, and feel capable in your own body for decades to come.',
         },
         {
@@ -182,14 +182,17 @@ const CONTENT = {
       headline: 'My philosophy',
       principles: [
         {
+          id: 'capability',
           title: 'Capability over aesthetics',
           description: "I believe the purpose of training is to make your life better—not to achieve a certain look. When you focus on what your body can do, the confidence follows naturally.",
         },
         {
+          id: 'understanding',
           title: 'Understanding over obedience',
           description: "I don't want clients who depend on me forever. I want to teach you enough about your own body that you can make informed decisions about your training for the rest of your life.",
         },
         {
+          id: 'sustainability',
           title: 'Sustainability over intensity',
           description: "The best program is the one you can stick with. I design training that fits into real life—not training that requires you to reorganize your entire existence around the gym.",
         },
@@ -216,22 +219,27 @@ const CONTENT = {
       headline: "What's included",
       items: [
         {
+          id: 'programming',
           title: 'Personalized Programming',
           description: "Your workouts are designed specifically for you—your goals, your equipment access, your schedule, your body. Delivered through a mobile app that makes it easy to follow along and track progress.",
         },
         {
+          id: 'nutrition',
           title: 'Nutritional Guidance',
           description: "Practical nutrition support that fits your lifestyle. No rigid meal plans or restriction—just clear guidance on fueling your body for the strength and energy you want.",
         },
         {
+          id: 'checkin',
           title: 'Weekly Check-ins',
           description: "Regular check-ins to review your progress, adjust your programming, address questions, and make sure you're moving in the right direction. This is where the real coaching happens.",
         },
         {
+          id: 'community',
           title: 'Community Access',
           description: "Join a private community of women working toward similar goals. Share wins, ask questions, and connect with others who understand what you're building.",
         },
         {
+          id: 'support',
           title: 'Ongoing Support',
           description: "24/7 text access for questions, form checks, and accountability. When something comes up, you don't have to wait until your next check-in to get help.",
         },
@@ -293,7 +301,7 @@ const CONTENT = {
       },
       social: {
         headline: 'Follow along',
-        description: 'I share fitness insights, movement tips, and behind-the-scenes content on Instagram.',
+        description: 'I share fitness insights and movement tips content on Instagram.',
         handle: '@sersunfit',
       },
       general: {
@@ -308,18 +316,158 @@ const CONTENT = {
   },
 
   /**
-   * Writing/Blog page content
-   * Hero and empty state messaging
+   * Resources page content
+   * Training guides, digital products, and helpful content
    */
-  writing: {
+  resources: {
     hero: {
-      label: 'Writing',
-      headline: 'Thoughts on movement, strength, and sustainable fitness',
-      description: 'Essays and insights from my practice. New posts are published occasionally—quality over quantity.',
+      label: 'Resources',
+      headline: 'Training guides and resources for strong, capable movement',
+      description: 'Digital guides and resources to support your fitness journey—wherever you are, whatever your goals.',
+    },
+    featuredProducts: {
+      headline: 'Training Guides',
+      products: [
+        {
+          id: 'kilimanjaro',
+          title: 'The Kilimanjaro Training Blueprint',
+          description: 'A clear, strength-first training plan for hikers who want to feel capable on the mountain. Includes 6-month and 12-week options.',
+          price: '$17',
+          features: ['Strength training and Conditioning', 'Nutrition', 'Breathwork', 'Joint protection'],
+          path: '/kilimanjaro-training-plan',
+          cta: 'Learn More',
+        },
+      ],
     },
     emptyState: {
-      message: 'Writing coming soon. In the meantime, follow along on',
+      message: 'New resources coming soon. In the meantime, follow along on',
       linkText: 'Instagram',
+    },
+  },
+
+  /**
+   * Kilimanjaro Training Blueprint Landing Page
+   * SEO-optimized product page for digital training guide
+   */
+  kilimanjaro: {
+    // SEO Meta
+    meta: {
+      title: 'Kilimanjaro Training Plan: 6-Month Strength-First Blueprint for Hikers | $17',
+      description: 'Train for Kilimanjaro with confidence. Strength training, hiking conditioning, and breathwork designed for busy women. 6-month + 12-week plans. Instant PDF access.',
+      keywords: 'kilimanjaro training plan, how to train for kilimanjaro, mount kilimanjaro training, kilimanjaro preparation guide, hiking training program',
+    },
+
+    // Hero Section
+    hero: {
+      label: 'Kilimanjaro Training Blueprint',
+      headline: 'Train for Kilimanjaro without guesswork',
+      description: 'A clear, strength-first training plan for hikers who want to feel capable on the mountain.',
+      features: [
+        'Strength training',
+        'Hiking-specific conditioning',
+        'Breathwork for calm pacing',
+        '6-month plan plus 12-week option',
+      ],
+      price: '$17',
+      priceNote: 'Instant access',
+      cta: 'Get the Kilimanjaro Training Blueprint',
+      ctaUrl: 'https://clairesersunfitness.kit.com/products/kilimanjaro-training-blueprint?step=checkout', // Replace with ConvertKit checkout URL
+    },
+
+    // Authority Section
+    authority: {
+      headline: 'Written by a certified strength coach',
+      description: 'Who has climbed Kilimanjaro and trains hikers to prepare their bodies for long days, repetitive steps, and altitude stress.',
+      emphasis: 'This is not a generic hiking plan.',
+      subtext: 'It is a practical framework.',
+    },
+
+    // Problem Section
+    problem: {
+      headline: 'Most people train for Kilimanjaro by doing more cardio',
+      intro: 'That often leads to:',
+      issues: [
+        'Sore knees on the descent',
+        'Foot pain and fatigue',
+        'Anxiety about pacing and altitude',
+      ],
+      solution: 'This guide shows you how to prepare your body to handle the demands of the climb.',
+    },
+
+    // What's Inside Section
+    inside: {
+      headline: "What's inside the Kilimanjaro Training Blueprint",
+      intro: 'Everything is laid out clearly so you can train with confidence.',
+      features: [
+        {
+          id: 'timeline',
+          title: 'Step-by-step training timeline',
+          description: 'Exactly how to structure strength and hiking each week for Kilimanjaro success.',
+        },
+        {
+          id: 'joint',
+          title: 'Joint-protective exercises',
+          description: 'Movements that support knees, hips, and feet through repetitive climbing and descent.',
+        },
+        {
+          id: 'endurance',
+          title: 'Build endurance intelligently',
+          description: 'How to increase stamina without burning out or overtaxing your body.',
+        },
+        {
+          id: 'breathwork',
+          title: 'Breathwork practices',
+          description: 'Techniques to support calm pacing and manage altitude stress.',
+        },
+        {
+          id: 'notrails',
+          title: 'No trails? No problem',
+          description: 'Options for training when you don\'t have access to hiking trails.',
+        },
+        {
+          id: 'taper',
+          title: 'Proper tapering protocol',
+          description: 'How to rest strategically so you arrive on the mountain feeling fresh.',
+        },
+      ],
+    },
+
+    // Who It's For Section
+    audience: {
+      headline: 'Is this guide right for you?',
+      intro: 'This guide is for you if:',
+      criteria: [
+        'You are climbing Kilimanjaro in the next 3–6 months',
+        'You want a plan instead of guessing',
+        'You care about joint health and long-term ability',
+      ],
+      note: 'Men can use this guide.',
+      noteEmphasis: 'It is written with women in mind.',
+    },
+
+    // What It's Not Section
+    notFor: {
+      headline: 'What this is not',
+      description: 'This is not an extreme challenge or a push-harder approach.',
+      emphasis: 'It is about preparing intelligently.',
+    },
+
+    // Final CTA Section
+    finalCta: {
+      headline: 'The Kilimanjaro Training Blueprint',
+      price: '$17',
+      priceNote: 'Instant PDF plus follow-up support emails',
+      cta: 'Get Instant Access',
+      ctaUrl: 'https://clairesersunfitness.kit.com/products/kilimanjaro-training-blueprint?step=checkout', // Replace with ConvertKit checkout URL
+    },
+
+    // Breadcrumb for internal linking
+    breadcrumb: {
+      links: [
+        { label: 'Home', path: '/' },
+        { label: 'Resources', path: '/resources' },
+        { label: 'Kilimanjaro Training Blueprint', path: '/kilimanjaro-training-plan' },
+      ],
     },
   },
 

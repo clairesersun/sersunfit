@@ -29,7 +29,8 @@ import HomePage from './Home';
 import AboutPage from './About';
 import CoachingPage from './Coaching';
 import ContactPage from './Contact';
-import WritingPage from './Writing';
+import ResourcesPage from './Resources';
+import KilimanjaroPage from './Kilimanjaro';
 
 /**
  * Valid page IDs mapped to their components
@@ -40,7 +41,8 @@ export const PAGE_MAP = {
   about: AboutPage,
   coaching: CoachingPage,
   contact: ContactPage,
-  writing: WritingPage,
+  resources: ResourcesPage,
+  'kilimanjaro-training-plan': KilimanjaroPage,
 };
 
 /**
@@ -108,4 +110,4 @@ export const renderPage = (pageId, props) => {
 };
 
 // Re-export page components
-export { HomePage, AboutPage, CoachingPage, ContactPage, WritingPage };
+export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage };

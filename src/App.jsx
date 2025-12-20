@@ -51,6 +51,9 @@ import {
   DEFAULT_PAGE,
 } from './pages';
 
+// SEO utilities
+import { updateSEOForPage } from './utils/seo';
+
 /**
  * Main Application Component
  *
@@ -109,6 +112,13 @@ export default function App() {
       window.removeEventListener('popstate', handlePathChange);
     };
   }, []);
+
+  /**
+   * Update SEO meta tags when page changes
+   */
+  useEffect(() => {
+    updateSEOForPage(currentPage);
+  }, [currentPage]);
 
   /**
    * Navigate to a new page

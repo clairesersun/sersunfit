@@ -44,7 +44,8 @@ const CONFIG = {
    * @type {Object}
    */
   assets: {
-    headshot: '/assets/headshot.webp',
+    headshot: '/images/Headshot.webp',
+    kilimanjaro: '/images/Kilimanjaro.webp',
   },
 
   /**

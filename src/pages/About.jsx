@@ -23,7 +23,7 @@ import {
   ImageReveal,
 } from '../components/animation';
 
-import { Button, Divider, OrganicShape } from '../components/ui';
+import { Button, Divider, OrganicShape, PhilosophyIcons } from '../components/ui';
 
 /**
  * AboutPage - Coach bio and philosophy
@@ -191,13 +191,43 @@ const AboutPage = ({ theme, isDarkMode, prefersReducedMotion }) => {
           <RevealOnScroll animation="slideUp">
             <h2 style={s.h2}>{c.philosophy.headline}</h2>
           </RevealOnScroll>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-            {c.philosophy.principles.map((p, i) => (
-              <RevealOnScroll key={i} animation="slideRight" delay={i * 150}>
-                <h3 style={{ ...s.h3, color: theme.primary }}>{p.title}</h3>
-                <p style={s.bodyLarge}>{p.description}</p>
-              </RevealOnScroll>
-            ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem', marginTop: '2rem' }}>
+            {c.philosophy.principles.map((p, i) => {
+              const Icon = PhilosophyIcons[p.id];
+              return (
+                <RevealOnScroll key={p.id} animation="slideRight" delay={i * 150}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '1.5rem',
+                      alignItems: 'flex-start',
+                      flexWrap: 'wrap',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        borderRadius: THEME.borderRadius.full,
+                        backgroundColor: theme.primary + '15',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {Icon && <Icon color={theme.primary} />}
+                    </div>
+                    <div style={{ flex: 1, minWidth: '250px' }}>
+                      <h3 style={{ ...s.h3, fontSize: '1.25rem', color: theme.primary }}>
+                        {p.title}
+                      </h3>
+                      <p style={s.bodyLarge}>{p.description}</p>
+                    </div>
+                  </div>
+                </RevealOnScroll>
+              );
+            })}
           </div>
         </div>
       </section>
