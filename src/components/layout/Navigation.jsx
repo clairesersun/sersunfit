@@ -27,6 +27,7 @@
 import React, { useState, useEffect } from 'react';
 import CONTENT from '../../content/siteContent';
 import { hasBlogContent } from '../../content/blogPosts';
+import ThemeIcons from '../ui/ThemeIcons';
 
 /**
  * Navigation - Main site header and navigation
@@ -101,30 +102,9 @@ const Navigation = ({
             aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {isDarkMode ? (
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="5" />
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-              </svg>
+              <ThemeIcons.light color="currentColor" size={18} />
             ) : (
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
+              <ThemeIcons.dark color="currentColor" size={18} />
             )}
           </button>
         </div>
@@ -181,30 +161,9 @@ const Navigation = ({
               <div className="nav__toggle-switch">
                 <div className="nav__toggle-knob">
                   {isDarkMode ? (
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="var(--color-primary)"
-                      strokeWidth="2.5"
-                      aria-hidden="true"
-                    >
-                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                    </svg>
+                    <ThemeIcons.dark color="var(--color-primary)" size={12} />
                   ) : (
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="#d97706"
-                      strokeWidth="2.5"
-                      aria-hidden="true"
-                    >
-                      <circle cx="12" cy="12" r="5" />
-                      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                    </svg>
+                    <ThemeIcons.light color="#d97706" size={12} />
                   )}
                 </div>
               </div>

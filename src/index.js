@@ -13,10 +13,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
-// Create root and render app
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const rootElement = document.getElementById('root');
+
+// Use hydrate if pre-rendered by react-snap, otherwise render normally
+if (rootElement.hasChildNodes()) {
+  // Hydrate pre-rendered content
+  ReactDOM.hydrateRoot(
+    rootElement,
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  // Normal render for development
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}

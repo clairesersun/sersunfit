@@ -17,3 +17,4 @@ export { default as ApproachIcons } from './ApproachIcons';
 export { default as CoachingIcons } from './CoachingIcons';
 export { default as KilimanjaroIcons } from './KilimanjaroIcons';
 export { default as PhilosophyIcons } from './PhilosophyIcons';
+export { default as ThemeIcons } from './ThemeIcons';
