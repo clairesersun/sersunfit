@@ -13,26 +13,6 @@ npm start
 
 ---
 
-## Environment Variables
-
-The following environment variables can be set in a `.env` file at the project root:
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `REACT_APP_APPLICATION_URL` | Fillout coaching application URL | `https://clairesersunfitness.fillout.com/coaching` |
-| `REACT_APP_INSTAGRAM_URL` | Instagram profile URL | `https://www.instagram.com/sersunfit/` |
-| `REACT_APP_SITE_URL` | Base site URL for SEO | `https://clairesersunfitness.com` |
-
-Example `.env` file:
-
-```env
-REACT_APP_APPLICATION_URL=https://clairesersunfitness.fillout.com/coaching
-REACT_APP_INSTAGRAM_URL=https://www.instagram.com/sersunfit/
-REACT_APP_SITE_URL=https://clairesersunfitness.com
-```
-
----
-
 ## Project Structure
 
 ```
