@@ -58,7 +58,7 @@ const CONTENT = {
         },
         {
           title: 'If you want more than yoga or Pilates',
-          description: 'You love movement but know you need strength training to support the life you want to live—hiking, traveling, playing with grandkids, staying independent.',
+          description: 'You love movement but know you need strength training to support the life you want to live: hiking, traveling, playing with grandkids, staying independent.',
         },
         {
           title: "If you're neurodivergent",
@@ -106,12 +106,12 @@ const CONTENT = {
         {
           id: 'strength',
           title: 'Progressive Strength',
-          description: 'Structured, periodized training that meets you where you are and builds systematically. No random workouts—everything has purpose and progression.',
+          description: 'Structured, periodized training that meets you where you are and builds systematically. No random workouts. Everything has purpose and progression.',
         },
         {
           id: 'accountability',
           title: 'Real Accountability',
-          description: 'Weekly check-ins and ongoing support that adapts to your life. Not pressure or guilt—genuine partnership in your process.',
+          description: 'Weekly check-ins and ongoing support that adapts to your life. Not pressure or guilt, but genuine partnership in your process.',
         },
       ],
     },
@@ -131,13 +131,13 @@ const CONTENT = {
     aboutPreview: {
       label: 'Your Coach',
       headline: "Hi, I'm Claire",
-      description: "I'm an ACE Certified Personal Trainer with over a decade of movement education experience. My background spans dance, Pilates, yoga, and somatic practices—all of which inform how I approach strength training today.",
+      description: "I'm an ACE Certified Personal Trainer with over a decade of movement education experience. My background spans dance, Pilates, yoga, and somatic practices, all of which inform how I approach strength training today.",
       additionalText: 'I believe everyone deserves to feel capable in their body. My work focuses on building that capability through progressive, sustainable training that honors where you are while challenging you to grow.',
       cta: 'More About Me',
     },
     finalCta: {
       headline: 'Ready to begin?',
-      description: "The application is simple and takes about 5 minutes. It helps me understand where you are and what you're looking for—no commitment required.",
+      description: "The application is simple and takes about 5 minutes. It helps me understand where you are and what you're looking for. No commitment required.",
       cta: 'Apply for Coaching',
     },
     closing: {
@@ -158,7 +158,7 @@ const CONTENT = {
       headline: "Hi, I'm Claire",
       paragraphs: [
         "I've spent over a decade studying how bodies move, adapt, and grow stronger. My path started in dance and kinesiology, expanded through Pilates and yoga certification, and ultimately led me to evidence-based strength training.",
-        "What sets my approach apart is the integration of somatic awareness with progressive strength training. I don't just tell you what exercises to do—I help you understand your body from the inside out, building the kind of body knowledge that stays with you long after our work together ends.",
+        "What sets my approach apart is the integration of somatic awareness with progressive strength training. I help you understand your body from the inside out, building the kind of body knowledge that stays with you long after our work together ends.",
         "I work primarily with women across all life stages, with particular expertise in supporting neurodivergent clients, women over 40, and anyone who's felt intimidated or excluded by traditional fitness spaces.",
       ],
     },
@@ -183,7 +183,7 @@ const CONTENT = {
         {
           id: 'capability',
           title: 'Capability over aesthetics',
-          description: "I believe the purpose of training is to make your life better—not to achieve a certain look. When you focus on what your body can do, the confidence follows naturally.",
+          description: "I believe the purpose of training is to make your life better, not to achieve a certain look. When you focus on what your body can do, the confidence follows naturally.",
         },
         {
           id: 'understanding',
@@ -193,7 +193,7 @@ const CONTENT = {
         {
           id: 'sustainability',
           title: 'Sustainability over intensity',
-          description: "The best program is the one you can stick with. I design training that fits into real life—not training that requires you to reorganize your entire existence around the gym.",
+          description: "The best program is the one you can stick with. I design training that fits into real life, not training that requires you to reorganize your entire existence around the gym.",
         },
       ],
     },
@@ -221,12 +221,12 @@ const CONTENT = {
         {
           id: 'programming',
           title: 'Personalized Programming',
-          description: "Your workouts are designed specifically for you—your goals, your equipment access, your schedule, your body. Delivered through a mobile app that makes it easy to follow along and track progress.",
+          description: "Your workouts are designed specifically for you: your goals, your equipment access, your schedule, your body. Delivered through a mobile app that makes it easy to follow along and track progress.",
         },
         {
           id: 'nutrition',
           title: 'Nutritional Guidance',
-          description: "Practical nutrition support that fits your lifestyle. No rigid meal plans or restriction—just clear guidance on fueling your body for the strength and energy you want.",
+          description: "Practical nutrition support that fits your lifestyle. No rigid meal plans or restriction, just clear guidance on fueling your body for the strength and energy you want.",
         },
         {
           id: 'checkin',
@@ -323,7 +323,7 @@ const CONTENT = {
     hero: {
       label: 'Resources',
       headline: 'Training guides and resources for strong, capable movement',
-      description: 'Digital guides and resources to support your fitness journey—wherever you are, whatever your goals.',
+      description: 'Digital guides and resources to support your fitness journey, wherever you are, whatever your goals.',
     },
     featuredProducts: {
       headline: 'Training Guides',
