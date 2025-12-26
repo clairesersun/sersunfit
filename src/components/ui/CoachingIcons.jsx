@@ -11,6 +11,7 @@
  * - checkin: Calendar/checkmark (weekly check-ins)
  * - community: Connected people (community access)
  * - support: Message bubble (ongoing support)
+ * - education: Book/lightbulb (movement education)
  *
  * @module CoachingIcons
  * ============================================
@@ -196,6 +197,71 @@ const CoachingIcons = {
       <path
         d="M16 18s-4-2-4-5c0-1.5 1-2.5 2-2.5 1 0 2 1 2 2.5 0-1.5 1-2.5 2-2.5 1 0 2 1 2 2.5 0 3-4 5-4 5z"
         fill={color}
+        opacity="0.5"
+      />
+    </svg>
+  ),
+
+  education: ({ color }) => (
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      {/* Book base */}
+      <rect
+        x="7"
+        y="6"
+        width="18"
+        height="20"
+        rx="1.5"
+        stroke={color}
+        strokeWidth="1.5"
+        opacity="0.4"
+      />
+      {/* Book spine */}
+      <line
+        x1="16"
+        y1="6"
+        x2="16"
+        y2="26"
+        stroke={color}
+        strokeWidth="1.5"
+        opacity="0.3"
+      />
+      {/* Lightbulb - represents understanding */}
+      <circle cx="16" cy="14" r="3.5" stroke={color} strokeWidth="1.5" />
+      <path
+        d="M14 17.5c0 1 0.5 2 2 2s2-1 2-2"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      {/* Light rays */}
+      <line
+        x1="16"
+        y1="8"
+        x2="16"
+        y2="6.5"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="20"
+        y1="10"
+        x2="21"
+        y2="9"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        opacity="0.5"
+      />
+      <line
+        x1="12"
+        y1="10"
+        x2="11"
+        y2="9"
+        stroke={color}
+        strokeWidth="1.5"
+        strokeLinecap="round"
         opacity="0.5"
       />
     </svg>

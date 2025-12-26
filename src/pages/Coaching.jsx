@@ -68,6 +68,13 @@ const CoachingPage = ({ theme, isDarkMode, prefersReducedMotion }) => {
           <h1 style={s.heroHeading}>
             <AnimatedText stagger={80}>{c.hero.headline}</AnimatedText>
           </h1>
+          {c.hero.subheadline && (
+            <RevealOnScroll animation="slideUp" delay={200}>
+              <p style={{ ...s.h3, marginTop: '1rem', marginBottom: '1.5rem' }}>
+                {c.hero.subheadline}
+              </p>
+            </RevealOnScroll>
+          )}
           <RevealOnScroll animation="slideUp" delay={400}>
             <p style={{ ...s.bodyLarge, marginBottom: '2.5rem' }}>{c.hero.description}</p>
           </RevealOnScroll>

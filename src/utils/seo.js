@@ -129,10 +129,10 @@ export const PAGE_SEO = {
     ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
   },
   coaching: {
-    title: '12-Week Coaching Program | Claire Sersun Fitness',
+    title: 'Capable Body Coaching | 12-Week Strength Program | Claire Sersun Fitness',
     description:
-      '12-week personalized strength coaching program including custom workouts, nutrition guidance, weekly check-ins, community access, and 24/7 support.',
-    keywords: 'coaching program, online training, personalized workouts, strength coaching',
+      'Build strength, confidence, and tools you keep for life. 12-week personalized coaching with custom workouts, nutrition guidance, weekly check-ins, and 24/7 support. Learn skills for independent training.',
+    keywords: 'capable body coaching, coaching program, online training, personalized workouts, strength coaching, independent fitness',
     canonical: 'https://clairesersunfitness.com/coaching',
     ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
   },

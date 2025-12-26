@@ -116,16 +116,15 @@ const CONTENT = {
       ],
     },
     program: {
-      label: 'The Program',
-      headline: '12 weeks of guided transformation',
-      description: 'A comprehensive coaching container designed to build lasting strength, sustainable habits, and the knowledge to continue progressing independently.',
+      label: 'Capable Body Coaching',
+      headline: '12 weeks to build your foundation',
+      description: 'A comprehensive coaching experience designed to build lasting strength, sustainable habits, and the skills to continue progressing independently. You\'ll leave with tools, not dependency.',
       features: [
         'Personalized workout programming delivered via mobile app',
         'Nutritional guidance tailored to your goals and lifestyle',
         'Weekly check-ins to assess progress and adjust your program',
         'Access to private community of like-minded women',
         '24/7 text support for questions and accountability',
-        'Movement education so you understand the "why"',
       ],
       cta: 'Apply for Coaching',
     },
@@ -212,8 +211,9 @@ const CONTENT = {
   coaching: {
     hero: {
       label: 'Coaching',
-      headline: 'Personalized strength coaching for lasting change',
-      description: 'A 12-week coaching container designed to build your strength, deepen your body awareness, and give you the skills to continue progressing independently.',
+      headline: 'Capable Body Coaching',
+      subheadline: 'Build strength, confidence, and tools you keep for life',
+      description: 'A 12-week personalized coaching experience to deepen body awareness, expand capacity, and make progress feel sustainable and yours.',
     },
     includes: {
       headline: "What's included",
@@ -231,18 +231,18 @@ const CONTENT = {
         {
           id: 'checkin',
           title: 'Weekly Check-ins',
-          description: "Regular check-ins to review your progress, adjust your programming, address questions, and make sure you're moving in the right direction. This is where the real coaching happens.",
+          description: "Regular check-ins to review your progress, adjust your programming, address questions, and make sure you\'re moving in the right direction. This is where the real coaching happens.",
         },
         {
           id: 'community',
           title: 'Community Access',
-          description: "Join a private community of women working toward similar goals. Share wins, ask questions, and connect with others who understand what you're building.",
+          description: "Join a private community of women working toward similar goals. Share wins, ask questions, and connect with others who understand what you\'re building.",
         },
         {
           id: 'support',
           title: 'Ongoing Support',
-          description: "24/7 text access for questions, form checks, and accountability. When something comes up, you don't have to wait until your next check-in to get help.",
-        },
+          description: "24/7 text access for questions, form checks, and accountability. When something comes up, you don\'t have to wait until your next check-in to get help.",
+        }
       ],
     },
     process: {
@@ -265,16 +265,16 @@ const CONTENT = {
         },
         {
           number: '04',
-          title: 'Transform',
-          description: "Over 12 weeks, you'll build strength, develop body awareness, and gain the skills to continue progressing on your own.",
+          title: 'Build Your Foundation',
+          description: "Over 12 weeks, you\'ll build strength, develop body awareness, and learn the skills to keep progressing independently. This is the beginning of your transformation, not the end.",
         },
       ],
     },
     cta: {
-      headline: 'Ready to start?',
-      description: "The application takes about 5 minutes. There's no commitment—it's just a chance for me to learn about you.",
+      headline: 'Ready to build your foundation?',
+      description: "The application takes about 5 minutes. There\'s no commitment—it\'s just a chance for me to learn about you and see if we\'re a good fit.",
       note: 'Applications are reviewed within 48 hours.',
-      buttonText: 'Apply for Coaching',
+      buttonText: 'Apply for Capable Body Coaching',
     },
     applicationEmbed: {
       headline: 'Application',
