@@ -472,6 +472,134 @@ const CONTENT = {
   },
 
   /**
+   * Corporate one-pager content
+   * Hidden landing page for B2B prospects (not in navigation)
+   */
+  corporate: {
+    hero: {
+      label: 'Virtual · Async · Personalized',
+      headline: '12-Week Executive Fitness Program',
+      description:
+        'A fully personalized 12-week coaching program designed for busy leaders — delivered through a mobile app, on your schedule, with weekly accountability built in.',
+    },
+    includes: {
+      headline: "What's Included",
+      items: [
+        {
+          id: 'programming',
+          title: 'Personalized Workout Program',
+          description: 'Custom programming delivered via mobile app — tailored to each person\'s goals, equipment, and schedule.',
+        },
+        {
+          id: 'nutrition',
+          title: 'Nutritional Coaching & Guidance',
+          description: 'Practical nutrition support that fits real life. No rigid meal plans — just clear guidance for energy and performance.',
+        },
+        {
+          id: 'checkin',
+          title: 'Weekly 1:1 Accountability Check-ins',
+          description: 'Regular check-ins to review progress, adjust programming, and keep momentum. This is where consistency is built.',
+        },
+        {
+          id: 'support',
+          title: '24/7 Async Text Support',
+          description: 'Questions, form checks, and accountability — available anytime, no scheduling required.',
+        },
+        {
+          id: 'onboarding',
+          title: 'Full Onboarding',
+          description: 'I handle everything. Your team just shows up. No coordination headaches for HR.',
+        },
+      ],
+    },
+    process: {
+      headline: 'How It Works',
+      steps: [
+        {
+          number: '1',
+          title: 'Enroll',
+          description: 'Company pays, employees get onboarded.',
+        },
+        {
+          number: '2',
+          title: 'Program',
+          description: 'Custom plan built for each person.',
+        },
+        {
+          number: '3',
+          title: 'Results',
+          description: 'Weekly check-ins keep everyone consistent.',
+        },
+      ],
+    },
+    pricing: {
+      headline: 'Investment',
+      tiers: [
+        {
+          name: 'Individual Executive',
+          price: '$750',
+          unit: '/month',
+          paidInFull: '$2,000 paid in full',
+          savings: 'saves $250',
+          description: 'Best for CEOs, founders & senior leaders',
+          featured: true,
+        },
+        {
+          name: 'Team · 3–5 People',
+          price: '$600',
+          unit: '/person/mo',
+          paidInFull: '$1,700/person paid in full',
+          savings: null,
+          description: 'Ideal for leadership teams',
+          featured: false,
+        },
+        {
+          name: 'Team · 6+ People',
+          price: '$500',
+          unit: '/person/mo',
+          paidInFull: '$1,400/person paid in full',
+          savings: null,
+          description: 'Maximum value for larger teams',
+          featured: false,
+        },
+      ],
+    },
+    testimonials: {
+      headline: 'What Clients Are Saying',
+      items: [
+        {
+          quote:
+            "Claire's fitness program has been a transformative process! She curates a perfect balance between challenging workouts, recovering cool downs, and mindful breathing exercises. What I really love about this program is the flexibility.",
+          author: 'Mimi Rosepink',
+        },
+        {
+          quote:
+            'Claire was incredibly supportive and motivating throughout my experience. Every question I had or adjustment I needed was met with immediate care and encouragement — which made the process feel truly personal rather than generic.',
+          author: 'Angelika Rosario',
+        },
+        {
+          quote:
+            'The program helped me stay accountable through check-ins with Claire. This was a wonderful way for me to grow in my knowledge and understanding of fitness. Thank you for everything.',
+          author: 'Olivia Faulkner',
+        },
+      ],
+    },
+    cta: {
+      headline: "Ready to invest in your team's health?",
+      buttonText: 'Book a Discovery Call',
+      details: [
+        'No scheduling headaches',
+        'Fully async',
+        'Turnkey for HR',
+      ],
+    },
+    footer: {
+      email: 'claire.sersun@gmail.com',
+      title: 'Executive Fitness Coach · Claire Sersun',
+    },
+  },
+
+  /**
    * Footer content
    * Brand info, navigation, and social links
    */

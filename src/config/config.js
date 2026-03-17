@@ -25,6 +25,8 @@ const CONFIG = {
     application: process.env.REACT_APP_APPLICATION_URL || 'https://clairesersunfitness.fillout.com/coaching',
     /** Instagram profile URL */
     instagram: process.env.REACT_APP_INSTAGRAM_URL || 'https://www.instagram.com/sersunfit/',
+    /** Discovery call booking URL for corporate prospects */
+    discoveryCall: process.env.REACT_APP_DISCOVERY_CALL_URL || 'mailto:claire.sersun@gmail.com?subject=Executive%20Fitness%20Program%20Inquiry',
     /** Base site URL for SEO and canonical links */
     site: process.env.REACT_APP_SITE_URL || 'https://clairesersunfitness.com',
   },
