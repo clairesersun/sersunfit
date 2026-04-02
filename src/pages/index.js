@@ -32,6 +32,7 @@ import ContactPage from './Contact';
 import ResourcesPage from './Resources';
 import KilimanjaroPage from './Kilimanjaro';
 import CorporatePage from './Corporate';
+import PrivacyPage from './Privacy';
 
 /**
  * Valid page IDs mapped to their components
@@ -45,6 +46,7 @@ export const PAGE_MAP = {
   resources: ResourcesPage,
   'kilimanjaro-training-plan': KilimanjaroPage,
   corporate: CorporatePage,
+  privacy: PrivacyPage,
 };
 
 /**
@@ -112,4 +114,4 @@ export const renderPage = (pageId, props) => {
 };
 
 // Re-export page components
-export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage, CorporatePage };
+export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage, CorporatePage, PrivacyPage };

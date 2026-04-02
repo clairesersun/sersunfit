@@ -102,6 +102,14 @@ const Footer = ({ onNavigate }) => {
         <div className="footer__copyright-container">
           <p className="footer__copyright">
             {c.copyright.replace('{year}', year)}
+            {' · '}
+            <button
+              className="footer__nav-link"
+              onClick={() => onNavigate('privacy')}
+              style={{ display: 'inline', fontSize: 'inherit' }}
+            >
+              Privacy Policy
+            </button>
           </p>
         </div>
       </RevealOnScroll>

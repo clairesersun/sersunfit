@@ -600,6 +600,118 @@ const CONTENT = {
   },
 
   /**
+   * Privacy Policy page content
+   * Required for Pinterest API app approval
+   * Not shown in navigation — direct link only (/privacy)
+   */
+  privacy: {
+    hero: {
+      label: 'Legal',
+      headline: 'Privacy Policy',
+      description: 'Effective Date: April 2, 2026',
+    },
+    sections: [
+      {
+        title: 'Introduction',
+        paragraphs: [
+          'Claire Sersun Fitness ("we," "us," or "our") operates the website clairesersunfitness.com. This Privacy Policy explains how we collect, use, and protect information when you visit our website or interact with our services, including our use of the Pinterest API.',
+        ],
+      },
+      {
+        title: 'Information We Collect',
+        paragraphs: ['We may collect the following types of information:'],
+        items: [
+          'Information you provide: Name, email address, and other details submitted through coaching applications or contact forms.',
+          'Pinterest data: When connected to the Pinterest API, we access Pinterest account information such as profile details, pins, and boards for internal business dashboard purposes only.',
+          'Automatically collected data: Standard web analytics data such as browser type, device type, pages visited, and referring URLs.',
+        ],
+      },
+      {
+        title: 'How We Use Your Information',
+        items: [
+          'To provide and improve our coaching services',
+          'To respond to inquiries and communications',
+          'To manage our internal Pinterest business dashboard',
+          'To analyze website usage and improve user experience',
+        ],
+      },
+      {
+        title: 'Pinterest API Usage',
+        paragraphs: [
+          'This application uses the Pinterest API for internal business purposes. Please note the following:',
+        ],
+        items: [
+          'This application is not affiliated with, endorsed by, or sponsored by Pinterest.',
+          'Pinterest data accessed through the API is used solely for internal business dashboard purposes and is not stored beyond the active session.',
+          'We do not sell, share, or redistribute any data obtained from Pinterest to third parties.',
+          'If the Pinterest connection is disconnected, all associated data is immediately removed from our system.',
+        ],
+      },
+      {
+        title: 'Cookies and Tracking',
+        paragraphs: [
+          'Our website may use cookies and similar technologies to improve your browsing experience. These may include essential cookies for site functionality and analytics cookies to understand site usage.',
+          'You can control cookie preferences through your browser settings.',
+        ],
+      },
+      {
+        title: 'Data Security',
+        paragraphs: [
+          'We implement reasonable security measures to protect your information from unauthorized access, alteration, or disclosure. However, no method of internet transmission is 100% secure.',
+        ],
+      },
+      {
+        title: 'Third-Party Services',
+        paragraphs: [
+          'Our website may contain links to third-party services (e.g., Instagram, Pinterest). We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies.',
+        ],
+      },
+      {
+        title: "Children's Privacy",
+        paragraphs: [
+          'Our services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children under 13.',
+        ],
+      },
+      {
+        title: 'Your Rights',
+        paragraphs: [
+          'Depending on your location, you may have the right to:',
+        ],
+        items: [
+          'Access the personal information we hold about you',
+          'Request correction of inaccurate information',
+          'Request deletion of your personal information',
+          'Opt out of the sale or sharing of personal information (we do not sell your data)',
+        ],
+      },
+      {
+        title: 'California Residents (CCPA/CPRA)',
+        paragraphs: [
+          'You have the right to know what personal information is collected, request its deletion, and opt out of its sale. We do not sell personal information.',
+        ],
+      },
+      {
+        title: 'EU/EEA Residents (GDPR)',
+        paragraphs: [
+          'You have rights to access, rectification, erasure, data portability, and the right to object to processing. Contact us to exercise these rights.',
+        ],
+      },
+      {
+        title: 'Changes to This Policy',
+        paragraphs: [
+          'We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.',
+        ],
+      },
+      {
+        title: 'Contact Us',
+        paragraphs: [
+          'For questions about this Privacy Policy, please contact us at claire.sersun@gmail.com.',
+        ],
+      },
+    ],
+  },
+
+  /**
    * Footer content
    * Brand info, navigation, and social links
    */
