@@ -15,3 +15,4 @@ export { default as useIsMobile } from './useIsMobile';
 export { default as useScrollAnimation } from './useScrollAnimation';
 export { default as useParallax } from './useParallax';
 export { default as useScrollProgress } from './useScrollProgress';
+export { default as useBlogPosts } from './useBlogPosts';

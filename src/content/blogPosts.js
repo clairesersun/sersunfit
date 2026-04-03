@@ -3,82 +3,78 @@
  * BLOG POSTS MODULE
  * ============================================
  *
- * Blog post data and related utilities.
+ * Async blog post queries backed by Supabase.
+ * Only reads published posts — the site never writes data.
  *
- * SEO STRATEGY:
- * Blog posts are the long-term SEO drivers for this site.
- * Each post should target specific search queries that ideal
- * clients might use to find fitness help.
- *
- * CONTENT GUIDELINES:
- * - Focus on evergreen topics (strength training, mobility, mindset)
- * - Target long-tail keywords relevant to target audience
- * - Include practical, actionable advice
- * - Maintain brand voice: calm, confident, supportive
+ * Supabase table: blog_posts
+ * Required columns: id, title, slug, keyword, body,
+ *   meta_description, sources, status, created_at
  *
  * ============================================
  */
 
-/**
- * Blog posts array
- *
- * When adding posts, include:
- * - id: unique string identifier (used for URLs when implemented)
- * - title: post headline (include target keywords)
- * - date: publication date string
- * - excerpt: 1-2 sentence preview
- * - content: full post content (can be markdown or HTML)
- * - tags: array of topic tags for filtering
- *
- * @type {Array<Object>}
- *
- * @example Post template (uncomment to add first post):
- * {
- *   id: 'strength-training-over-60',
- *   title: 'Why Strength Training After 60 Is Non-Negotiable',
- *   date: 'January 2025',
- *   excerpt: 'The research is clear: strength training is the single best thing you can do for longevity, independence, and quality of life after 60.',
- *   content: `
- *     Full post content goes here...
- *   `,
- *   tags: ['strength-training', 'aging', 'longevity'],
- * }
- */
-const BLOG_POSTS = [
-  // Example post structure (uncomment and modify to add posts):
-  // {
-  //   id: 'first-post-slug',
-  //   title: 'Post Title Here',
-  //   date: 'January 2025',
-  //   excerpt: 'A brief preview of what this post covers...',
-  //   content: 'Full post content...',
-  //   tags: ['tag1', 'tag2'],
-  // },
-];
+import { supabase } from '../utils/supabase';
 
 /**
- * Check if there are any published blog posts
- * Used to conditionally show/hide Writing nav item
- *
- * @returns {boolean} True if blog has at least one post
+ * Format a Supabase row into the shape components expect.
  */
-export const hasBlogContent = () => BLOG_POSTS && BLOG_POSTS.length > 0;
+const formatPost = (row) => ({
+  id: row.slug,
+  slug: row.slug,
+  title: row.title,
+  date: new Date(row.created_at).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }),
+  excerpt: row.meta_description || '',
+  content: row.body || '',
+  keyword: row.keyword || '',
+  tags: [row.keyword].filter(Boolean),
+  sources: (() => {
+    if (!row.sources) return [];
+    if (Array.isArray(row.sources)) return row.sources;
+    try { return JSON.parse(row.sources); } catch { return []; }
+  })(),
+  created_at: row.created_at,
+});
 
 /**
- * Get a blog post by its slug/id
- *
- * @param {string} id - The post's unique identifier
- * @returns {Object|undefined} The post object or undefined if not found
+ * Fetch all published blog posts, newest first.
+ * @returns {Promise<Array<Object>>}
  */
-export const getPostById = (id) => BLOG_POSTS.find((post) => post.id === id);
+export const fetchBlogPosts = async () => {
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('id, title, slug, keyword, body, meta_description, sources, created_at')
+    .eq('status', 'Published')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('Error fetching blog posts:', error);
+    return [];
+  }
+
+  return (data || []).map(formatPost);
+};
 
 /**
- * Get posts filtered by tag
- *
- * @param {string} tag - The tag to filter by
- * @returns {Array<Object>} Array of matching posts
+ * Fetch a single published post by slug.
+ * @param {string} slug
+ * @returns {Promise<Object|null>}
  */
-export const getPostsByTag = (tag) =>
-  BLOG_POSTS.filter((post) => post.tags?.includes(tag));
+export const fetchPostBySlug = async (slug) => {
+  const { data, error } = await supabase
+    .from('blog_posts')
+    .select('*')
+    .eq('slug', slug)
+    .eq('status', 'Published')
+    .single();
 
-export default BLOG_POSTS;
+  if (error) {
+    console.error('Error fetching post:', error);
+    return null;
+  }
+
+  return data ? formatPost(data) : null;
+};

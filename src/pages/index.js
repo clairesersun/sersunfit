@@ -33,6 +33,8 @@ import ResourcesPage from './Resources';
 import KilimanjaroPage from './Kilimanjaro';
 import CorporatePage from './Corporate';
 import PrivacyPage from './Privacy';
+import WritingPage from './Writing';
+import BlogPostPage from './BlogPost';
 
 /**
  * Valid page IDs mapped to their components
@@ -44,6 +46,7 @@ export const PAGE_MAP = {
   coaching: CoachingPage,
   contact: ContactPage,
   resources: ResourcesPage,
+  writing: WritingPage,
   'kilimanjaro-training-plan': KilimanjaroPage,
   corporate: CorporatePage,
   privacy: PrivacyPage,
@@ -70,13 +73,20 @@ export const isValidPage = (pageId) => VALID_PAGES.includes(pageId);
 /**
  * Gets page ID from URL path
  * Returns default page if path is invalid or root
+ * Handles blog/{slug} routes as a special case
  *
- * @returns {string} Valid page ID
+ * @returns {string} Valid page ID or 'blog-post' for /blog/{slug}
  */
 export const getPageFromPath = () => {
   if (typeof window === 'undefined') return DEFAULT_PAGE;
 
   const path = window.location.pathname.slice(1); // Remove leading /
+
+  // Handle /blog/{slug} routes
+  if (path.startsWith('blog/') && path.length > 5) {
+    return 'blog-post';
+  }
+
   return isValidPage(path) ? path : DEFAULT_PAGE;
 };
 
@@ -90,13 +100,19 @@ export const getPageFromPath = () => {
 export const setPathForPage = (pageId, replace = false) => {
   if (typeof window === 'undefined') return;
 
-  const newPath = pageId === DEFAULT_PAGE ? '/' : `/${pageId}`;
+  let newPath;
+  if (pageId === DEFAULT_PAGE) {
+    newPath = '/';
+  } else if (pageId.startsWith('blog/')) {
+    // Blog post routes are already full paths
+    newPath = `/${pageId}`;
+  } else {
+    newPath = `/${pageId}`;
+  }
 
   if (replace) {
-    // Replace current history entry (used for initial load)
     window.history.replaceState(null, '', newPath);
   } else {
-    // Push new history entry (used for navigation)
     window.history.pushState(null, '', newPath);
   }
 };
@@ -109,9 +125,12 @@ export const setPathForPage = (pageId, replace = false) => {
  * @returns {React.Element} Rendered page component
  */
 export const renderPage = (pageId, props) => {
+  if (pageId === 'blog-post') {
+    return <BlogPostPage {...props} />;
+  }
   const PageComponent = PAGE_MAP[pageId] || PAGE_MAP[DEFAULT_PAGE];
   return <PageComponent {...props} />;
 };
 
 // Re-export page components
-export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage, CorporatePage, PrivacyPage };
+export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage, CorporatePage, PrivacyPage, WritingPage, BlogPostPage };

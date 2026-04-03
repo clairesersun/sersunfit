@@ -26,7 +26,7 @@
 
 import React, { useState, useEffect } from 'react';
 import CONTENT from '../../content/siteContent';
-import { hasBlogContent } from '../../content/blogPosts';
+import useBlogPosts from '../../hooks/useBlogPosts';
 import ThemeIcons from '../ui/ThemeIcons';
 
 /**
@@ -46,6 +46,7 @@ const Navigation = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { hasPosts } = useBlogPosts();
 
   // Track scroll position for background opacity
   useEffect(() => {
@@ -58,7 +59,7 @@ const Navigation = ({
 
   // Filter nav items (hide Writing if no blog content)
   const visibleNavItems = CONTENT.navigation.items.filter(
-    (item) => !item.requiresBlogContent || hasBlogContent()
+    (item) => !item.requiresBlogContent || hasPosts
   );
 
   const handleNavClick = (pageId) => {

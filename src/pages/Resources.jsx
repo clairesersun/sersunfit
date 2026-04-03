@@ -18,7 +18,7 @@ import React from 'react';
 import { THEME } from '../styles/theme';
 import CONFIG from '../config/config';
 import CONTENT from '../content/siteContent';
-import BLOG_POSTS, { hasBlogContent } from '../content/blogPosts';
+import useBlogPosts from '../hooks/useBlogPosts';
 import { createStyles } from './styles';
 
 import {
@@ -41,6 +41,7 @@ import { Card, Divider, OrganicShape, Button } from '../components/ui';
 const ResourcesPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
   const s = createStyles(theme);
   const c = CONTENT.resources;
+  const { posts, loading, hasPosts } = useBlogPosts();
 
   return (
     <main id="main-content">
@@ -160,29 +161,39 @@ const ResourcesPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) 
       )}
 
       {/* ===== BLOG POSTS (if any) ===== */}
-      {hasBlogContent() && (
+      {hasPosts && (
         <section style={{ width: '100%', padding: '5rem 1.5rem' }}>
           <div style={{ maxWidth: THEME.maxWidth.narrow, margin: '0 auto' }}>
             <RevealOnScroll animation="fade">
               <h2 style={{ ...s.sectionHeading, marginBottom: '2rem' }}>Articles</h2>
             </RevealOnScroll>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              {BLOG_POSTS.map((post, i) => (
-                <Card key={post.id} theme={theme} index={i}>
-                  <span style={{ ...s.label, color: theme.textMuted }}>{post.date}</span>
-                  <h3
+              {posts.map((post, i) => (
+                <Card key={post.slug} theme={theme} index={i}>
+                  <button
+                    onClick={() => onNavigate(`blog/${post.slug}`)}
                     style={{
-                      fontFamily: THEME.fonts.display,
-                      fontSize: '1.5rem',
-                      fontWeight: 500,
-                      color: theme.text,
-                      marginTop: '0.5rem',
-                      marginBottom: '1rem',
+                      all: 'unset',
+                      cursor: 'pointer',
+                      display: 'block',
+                      width: '100%',
                     }}
                   >
-                    {post.title}
-                  </h3>
-                  <p style={s.body}>{post.excerpt}</p>
+                    <span style={{ ...s.label, color: theme.textMuted }}>{post.date}</span>
+                    <h3
+                      style={{
+                        fontFamily: THEME.fonts.display,
+                        fontSize: '1.5rem',
+                        fontWeight: 500,
+                        color: theme.text,
+                        marginTop: '0.5rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
+                      {post.title}
+                    </h3>
+                    <p style={s.body}>{post.excerpt}</p>
+                  </button>
                 </Card>
               ))}
             </div>
@@ -196,7 +207,7 @@ const ResourcesPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) 
         style={{
           width: '100%',
           padding: '5rem 1.5rem',
-          backgroundColor: hasBlogContent() ? theme.bgSecondary : 'transparent',
+          backgroundColor: hasPosts ? theme.bgSecondary : 'transparent',
           position: 'relative',
           overflow: 'hidden',
         }}

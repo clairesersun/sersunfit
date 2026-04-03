@@ -19,7 +19,7 @@
 import React from 'react';
 import CONTENT from '../../content/siteContent';
 import CONFIG from '../../config/config';
-import { hasBlogContent } from '../../content/blogPosts';
+import useBlogPosts from '../../hooks/useBlogPosts';
 import RevealOnScroll from '../animation/RevealOnScroll';
 
 /**
@@ -31,10 +31,11 @@ import RevealOnScroll from '../animation/RevealOnScroll';
 const Footer = ({ onNavigate }) => {
   const year = new Date().getFullYear();
   const c = CONTENT.footer;
+  const { hasPosts } = useBlogPosts();
 
   // Filter nav items for footer
   const visibleNavItems = CONTENT.navigation.items.filter(
-    (item) => !item.requiresBlogContent || hasBlogContent()
+    (item) => !item.requiresBlogContent || hasPosts
   );
 
   return (

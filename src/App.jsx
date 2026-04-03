@@ -128,14 +128,17 @@ export default function App() {
    */
   const navigate = useCallback(
     (page) => {
+      // Blog post routes use blog/{slug} format
+      const isBlogRoute = page.startsWith('blog/');
+
       // Validate page ID
-      if (!isValidPage(page)) {
+      if (!isBlogRoute && !isValidPage(page)) {
         console.warn(`Invalid page: ${page}`);
         page = DEFAULT_PAGE;
       }
 
-      // Update state
-      setCurrentPage(page);
+      // For blog routes, set currentPage to 'blog-post' so routing picks it up
+      setCurrentPage(isBlogRoute ? 'blog-post' : page);
 
       // Update URL path (pushes to history)
       setPathForPage(page);
