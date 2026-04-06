@@ -8,7 +8,7 @@
  *
  * Supabase table: blog_posts
  * Required columns: id, title, slug, keyword, body,
- *   meta_description, sources, status, created_at
+ *   meta_description, sources, status, created_at, published_at
  *
  * ============================================
  */
@@ -22,7 +22,7 @@ const formatPost = (row) => ({
   id: row.slug,
   slug: row.slug,
   title: row.title,
-  date: new Date(row.created_at).toLocaleDateString('en-US', {
+  date: new Date(row.published_at || row.created_at).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -46,9 +46,10 @@ const formatPost = (row) => ({
 export const fetchBlogPosts = async () => {
   const { data, error } = await supabase
     .from('blog_posts')
-    .select('id, title, slug, keyword, body, meta_description, sources, created_at')
+    .select('id, title, slug, keyword, body, meta_description, sources, created_at, published_at')
     .eq('status', 'Published')
-    .order('created_at', { ascending: false });
+    .lte('published_at', new Date().toISOString())
+    .order('published_at', { ascending: false });
 
   if (error) {
     console.error('Error fetching blog posts:', error);
@@ -69,6 +70,7 @@ export const fetchPostBySlug = async (slug) => {
     .select('*')
     .eq('slug', slug)
     .eq('status', 'Published')
+    .lte('published_at', new Date().toISOString())
     .single();
 
   if (error) {
