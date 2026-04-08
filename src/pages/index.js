@@ -33,7 +33,7 @@ import ResourcesPage from './Resources';
 import KilimanjaroPage from './Kilimanjaro';
 import CorporatePage from './Corporate';
 import PrivacyPage from './Privacy';
-import WritingPage from './Writing';
+import BlogPage from './Blog';
 import BlogPostPage from './BlogPost';
 
 /**
@@ -46,7 +46,7 @@ export const PAGE_MAP = {
   coaching: CoachingPage,
   contact: ContactPage,
   resources: ResourcesPage,
-  writing: WritingPage,
+  blog: BlogPage,
   'kilimanjaro-training-plan': KilimanjaroPage,
   corporate: CorporatePage,
   privacy: PrivacyPage,
@@ -133,4 +133,4 @@ export const renderPage = (pageId, props) => {
 };
 
 // Re-export page components
-export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage, CorporatePage, PrivacyPage, WritingPage, BlogPostPage };
+export { HomePage, AboutPage, CoachingPage, ContactPage, ResourcesPage, KilimanjaroPage, CorporatePage, PrivacyPage, BlogPage, BlogPostPage };

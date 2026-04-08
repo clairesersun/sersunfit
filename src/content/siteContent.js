@@ -27,7 +27,7 @@ const CONTENT = {
       { id: 'about', label: 'About' },
       { id: 'coaching', label: 'Coaching' },
       { id: 'resources', label: 'Resources' },
-      { id: 'writing', label: 'Writing', requiresBlogContent: true },
+      { id: 'blog', label: 'Blog', requiresBlogContent: true },
       { id: 'contact', label: 'Contact' },
     ],
   },

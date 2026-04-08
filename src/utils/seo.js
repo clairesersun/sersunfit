@@ -152,12 +152,12 @@ export const PAGE_SEO = {
     canonical: 'https://clairesersunfitness.com/resources',
     ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
   },
-  writing: {
-    title: 'Writing | Claire Sersun Fitness',
+  blog: {
+    title: 'Blog | Claire Sersun Fitness',
     description:
       'Thoughts on strength training, movement, and building a capable life. Evidence-based articles for women ready to get stronger.',
     keywords: 'fitness blog, strength training articles, women fitness tips, movement education',
-    canonical: 'https://clairesersunfitness.com/writing',
+    canonical: 'https://clairesersunfitness.com/blog',
     ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
   },
   'kilimanjaro-training-plan': {

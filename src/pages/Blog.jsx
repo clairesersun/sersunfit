@@ -11,7 +11,7 @@ import {
 
 import { Card, Divider, OrganicShape } from '../components/ui';
 
-const WritingPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
+const BlogPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
   const s = createStyles(theme);
   const { posts, loading } = useBlogPosts();
 
@@ -42,7 +42,7 @@ const WritingPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) =>
         />
         <div style={{ maxWidth: THEME.maxWidth.narrow, margin: '0 auto' }}>
           <RevealOnScroll animation="fade">
-            <span style={s.label}>Writing</span>
+            <span style={s.label}>Blog</span>
           </RevealOnScroll>
           <h1 style={s.heroHeading}>
             <AnimatedText stagger={80}>Thoughts on strength, movement, and building a capable life</AnimatedText>
@@ -157,4 +157,4 @@ const WritingPage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) =>
   );
 };
 
-export default WritingPage;
+export default BlogPage;

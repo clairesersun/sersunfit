@@ -98,7 +98,11 @@ export default function App() {
    */
   useEffect(() => {
     // Sync initial path with state (replaces, doesn't push history)
-    setPathForPage(getPageFromPath(), true);
+    // Skip for blog-post routes — the URL already has the correct /blog/{slug} path
+    const initialPage = getPageFromPath();
+    if (initialPage !== 'blog-post') {
+      setPathForPage(initialPage, true);
+    }
 
     const handlePathChange = () => {
       const pageFromPath = getPageFromPath();

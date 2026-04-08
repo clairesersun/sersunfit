@@ -82,8 +82,8 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
           <p style={{ ...s.body, marginBottom: '2rem' }}>
             This post may have been removed or the link may be incorrect.
           </p>
-          <Button theme={theme} onClick={() => onNavigate('writing')}>
-            Back to Writing
+          <Button theme={theme} onClick={() => onNavigate('blog')}>
+            Back to Blog
           </Button>
         </div>
       </main>
@@ -214,8 +214,8 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
 
         {/* ===== BACK LINK ===== */}
         <div style={{ maxWidth: THEME.maxWidth.narrow, margin: '3rem auto 0', textAlign: 'center' }}>
-          <Button theme={theme} onClick={() => onNavigate('writing')}>
-            Back to Writing
+          <Button theme={theme} onClick={() => onNavigate('blog')}>
+            Back to Blog
           </Button>
         </div>
       </section>

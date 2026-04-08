@@ -57,7 +57,7 @@ const Navigation = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Filter nav items (hide Writing if no blog content)
+  // Filter nav items (hide Blog if no blog content)
   const visibleNavItems = CONTENT.navigation.items.filter(
     (item) => !item.requiresBlogContent || hasPosts
   );
