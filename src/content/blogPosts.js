@@ -71,7 +71,7 @@ export const fetchPostBySlug = async (slug) => {
     .eq('slug', slug)
     .eq('status', 'Published')
     .lte('published_at', new Date().toISOString())
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error('Error fetching post:', error);

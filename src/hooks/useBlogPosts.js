@@ -3,17 +3,23 @@ import { fetchBlogPosts } from '../content/blogPosts';
 
 /**
  * Module-level cache so every component shares the same result
- * and we only hit Supabase once per page load.
+ * and we only hit Supabase once per session (refreshes daily).
  */
 let cachedPosts = null;
+let cachedAt = 0;
 let fetchPromise = null;
 
+const ONE_DAY = 24 * 60 * 60 * 1000;
+
 const loadPosts = () => {
-  if (cachedPosts !== null) return Promise.resolve(cachedPosts);
+  if (cachedPosts !== null && Date.now() - cachedAt < ONE_DAY) {
+    return Promise.resolve(cachedPosts);
+  }
   if (fetchPromise) return fetchPromise;
 
   fetchPromise = fetchBlogPosts().then((posts) => {
     cachedPosts = posts;
+    cachedAt = Date.now();
     fetchPromise = null;
     return posts;
   });
@@ -30,7 +36,8 @@ export default function useBlogPosts() {
   const [loading, setLoading] = useState(cachedPosts === null);
 
   useEffect(() => {
-    if (cachedPosts !== null) {
+    const isFresh = cachedPosts !== null && Date.now() - cachedAt < ONE_DAY;
+    if (isFresh) {
       setPosts(cachedPosts);
       setLoading(false);
       return;

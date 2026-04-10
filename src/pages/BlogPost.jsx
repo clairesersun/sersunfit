@@ -27,7 +27,7 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
 
   // Extract slug from URL: /blog/{slug}
   const slug = typeof window !== 'undefined'
-    ? window.location.pathname.replace(/^\/blog\//, '')
+    ? window.location.pathname.replace(/^\/blog\//, '').replace(/\/+$/, '')
     : '';
 
   useEffect(() => {
