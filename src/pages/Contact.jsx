@@ -127,7 +127,16 @@ const ContactPage = ({ theme, isDarkMode, prefersReducedMotion }) => {
             {/* General inquiries */}
             <RevealOnScroll animation="slideUp" delay={300}>
               <h2 style={s.h3}>{c.sections.general.headline}</h2>
-              <p style={s.body}>{c.sections.general.description}</p>
+              <p style={s.body}>
+                {c.sections.general.description}{' '}
+                <a
+                  href={`mailto:${c.sections.general.email}`}
+                  style={{ color: theme.primary, textDecoration: 'underline' }}
+                >
+                  {c.sections.general.email}
+                </a>
+                .
+              </p>
             </RevealOnScroll>
           </div>
         </div>

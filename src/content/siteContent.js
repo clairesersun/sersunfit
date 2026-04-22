@@ -333,7 +333,8 @@ const CONTENT = {
       },
       general: {
         headline: 'General inquiries',
-        description: 'For press, partnerships, or other inquiries, please reach out via Instagram direct message.',
+        description: 'For press, partnerships, or other inquiries, reach out via Instagram direct message or email me at',
+        email: 'claire@clairesersunfitness.com',
       },
     },
     closing: {
