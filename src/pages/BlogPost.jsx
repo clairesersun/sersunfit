@@ -122,6 +122,7 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
               {post.keyword && (
                 <span
                   style={{
+                    fontFamily: THEME.fonts.ui,
                     fontSize: '0.7rem',
                     fontWeight: 500,
                     textTransform: 'uppercase',
@@ -131,6 +132,8 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
                     border: `1px solid ${theme.border}`,
                     borderRadius: '4px',
                     color: theme.textMuted,
+                    lineHeight: 1.4,
+                    display: 'inline-block',
                   }}
                 >
                   {post.keyword}

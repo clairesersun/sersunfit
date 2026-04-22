@@ -129,6 +129,32 @@ const CONTENT = {
       ],
       cta: 'Apply for Coaching',
     },
+    testimonials: {
+      label: 'Client Experiences',
+      headline: 'What clients are saying',
+      items: [
+        {
+          quote:
+            "Claire's fitness program has been a transformative process! She curates a perfect balance between challenging workouts, recovering cool downs, and mindful breathing exercises to build strength, mobility, and confidence. What I really love about this program is the flexibility! Whether you want a more hands-on approach or a more independent experience, Claire thoughtfully guides you through your ideal fitness journey. I would highly recommend!",
+          author: 'Mimi Rosepink',
+        },
+        {
+          quote:
+            'Claire was incredibly supportive and motivating throughout my experience. Every question I had or adjustment I needed was met with immediate care and encouragement, which made the process feel truly personal rather than generic. That level of attentiveness made my fitness journey not only effective, but genuinely pleasant and empowering.',
+          author: 'Angelika Rosario',
+        },
+        {
+          quote:
+            "This experience was definitely unexpected but so amazing! Claire reached out to me and was so helpful! The program and app itself was super user-friendly and easy to navigate — a lot of helpful things all in one place. I utilized the breathing exercises and the water intake tracker the most. The breathing exercises were such a great way to start my busy day — a really nice calm before the storm. Claire was there anytime I had questions or just needed help getting started. 10/10 experience!",
+          author: 'Jessica Welchance',
+        },
+        {
+          quote:
+            'Thank you so much for allowing me to participate in this program. It was a wonderful way for me to grow in my knowledge and understanding of exercising. This program also helped me stay accountable by doing check-ins with you. Thank you for everything.',
+          author: 'Olivia Faulkner',
+        },
+      ],
+    },
     aboutPreview: {
       label: 'Your Coach',
       headline: "Hi, I'm Claire",

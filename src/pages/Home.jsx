@@ -349,6 +349,65 @@ const HomePage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
         </div>
       </section>
 
+      {/* ===== TESTIMONIALS SECTION ===== */}
+      <section style={{ width: '100%', padding: '6rem 1.5rem' }}>
+        <div style={{ maxWidth: THEME.maxWidth.wide, margin: '0 auto' }}>
+          <RevealOnScroll animation="slideUp">
+            <span style={s.label}>{c.testimonials.label}</span>
+            <h2 style={{ ...s.h2, marginBottom: '3rem' }}>{c.testimonials.headline}</h2>
+          </RevealOnScroll>
+
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
+              gap: '1.5rem',
+            }}
+          >
+            {c.testimonials.items.map((testimonial, i) => (
+              <RevealOnScroll key={i} animation="slideUp" delay={i * 100}>
+                <div
+                  style={{
+                    padding: '2rem',
+                    borderRadius: THEME.borderRadius.lg,
+                    borderLeft: `3px solid ${theme.primary}`,
+                    backgroundColor: theme.bgSecondary,
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                  }}
+                >
+                  <p
+                    style={{
+                      fontFamily: THEME.fonts.body,
+                      fontSize: '1rem',
+                      lineHeight: 1.75,
+                      color: theme.textSecondary,
+                      fontStyle: 'italic',
+                      marginBottom: '1.5rem',
+                    }}
+                  >
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: THEME.fonts.ui,
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      color: theme.text,
+                      letterSpacing: '0.02em',
+                    }}
+                  >
+                    &mdash; {testimonial.author}
+                  </p>
+                </div>
+              </RevealOnScroll>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== ABOUT PREVIEW SECTION ===== */}
       <section
         className="texture-overlay"
