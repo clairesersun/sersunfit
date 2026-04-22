@@ -350,8 +350,17 @@ const HomePage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
       </section>
 
       {/* ===== TESTIMONIALS SECTION ===== */}
-      <section style={{ width: '100%', padding: '6rem 1.5rem' }}>
-        <div style={{ maxWidth: THEME.maxWidth.wide, margin: '0 auto' }}>
+      <section
+        className="texture-overlay"
+        style={{
+          width: '100%',
+          backgroundColor: theme.bgSecondary,
+          padding: '6rem 1.5rem',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+      >
+        <div style={{ maxWidth: THEME.maxWidth.wide, margin: '0 auto', position: 'relative' }}>
           <RevealOnScroll animation="slideUp">
             <span style={s.label}>{c.testimonials.label}</span>
             <h2 style={{ ...s.h2, marginBottom: '3rem' }}>{c.testimonials.headline}</h2>
@@ -371,7 +380,7 @@ const HomePage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
                     padding: '2rem',
                     borderRadius: THEME.borderRadius.lg,
                     borderLeft: `3px solid ${theme.primary}`,
-                    backgroundColor: theme.bgSecondary,
+                    backgroundColor: theme.bg,
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -410,28 +419,11 @@ const HomePage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
 
       {/* ===== ABOUT PREVIEW SECTION ===== */}
       <section
-        className="texture-overlay"
         style={{
           width: '100%',
-          backgroundColor: theme.bgSecondary,
           padding: '6rem 1.5rem',
-          position: 'relative',
-          overflow: 'hidden',
         }}
       >
-        <OrganicShape
-          variant={2}
-          isDarkMode={isDarkMode}
-          primaryColor={theme.primary}
-          style={{
-            width: '450px',
-            height: '450px',
-            top: '-15%',
-            left: '60%',
-            transform: 'rotate(60deg)',
-          }}
-        />
-
         <div
           style={{
             maxWidth: THEME.maxWidth.wide,
@@ -475,12 +467,14 @@ const HomePage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
 
       {/* ===== FINAL CTA SECTION ===== */}
       <section
-        className="cta-glow"
+        className="cta-glow texture-overlay"
         style={{
           width: '100%',
+          backgroundColor: theme.bgSecondary,
           padding: '6rem 1.5rem',
           textAlign: 'center',
           position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <div style={{ maxWidth: THEME.maxWidth.narrow, margin: '0 auto' }}>
@@ -501,9 +495,7 @@ const HomePage = ({ theme, isDarkMode, prefersReducedMotion, onNavigate }) => {
 
       {/* ===== CLOSING SECTION ===== */}
       <section
-        className="texture-overlay"
         style={{
-          backgroundColor: theme.bgSecondary,
           padding: '4rem 1.5rem',
           textAlign: 'center',
           position: 'relative',
