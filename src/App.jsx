@@ -30,7 +30,7 @@
  * ============================================
  */
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 // Styles
 import './styles/main.css';
@@ -122,6 +122,26 @@ export default function App() {
    */
   useEffect(() => {
     updateSEOForPage(currentPage);
+  }, [currentPage]);
+
+  /**
+   * Send a Google Analytics page_view on SPA route changes.
+   * The initial page_view is sent by gtag('config', ...) in index.html,
+   * so skip the first render to avoid double-counting the landing page.
+   */
+  const isInitialPageView = useRef(true);
+  useEffect(() => {
+    if (isInitialPageView.current) {
+      isInitialPageView.current = false;
+      return;
+    }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+      });
+    }
   }, [currentPage]);
 
   /**
