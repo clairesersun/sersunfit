@@ -73,125 +73,121 @@
   />
 
   <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
-  <!-- Helps search engines understand page content -->
-
-  <!-- Organization Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Claire Sersun Fitness",
-    "description": "Online strength coaching for women of all ages and abilities",
-    "url": "https://clairesersunfitness.com",
-    "logo": "https://clairesersunfitness.com/logo.png",
-    "image": "https://clairesersunfitness.com/og-image.jpg",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "US"
-    },
-    "sameAs": [
-      "https://www.instagram.com/sersunfit/"
-    ]
-  }
-  </script>
-
-  <!-- Person Schema (Coach) -->
   <!--
-    NOTE: URL uses hash-based routing (#about) because this is an SPA.
-    Hash fragments are not crawled as separate pages by search engines,
-    but this maintains consistency with the navigation structure.
-    Blog posts will be the primary SEO drivers when added.
+    Single connected @graph so search engines and AI assistants resolve that
+    Claire (the Person) IS the provider behind Claire Sersun Fitness.
+
+    HOST: all URLs use non-www to match the canonical in <link rel="canonical">
+    and REACT_APP_SITE_URL in src/config/config.js. If you 301 to www, update
+    every URL/@id here to https://www.clairesersunfitness.com.
+
+    LOGO: "logo" temporarily points to the headshot (a real, non-broken asset).
+    Replace /images/logo.png once a dedicated square/wordmark logo (min 112px,
+    on solid background) exists — better for Google knowledge-panel eligibility.
   -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Claire Sersun",
-    "jobTitle": "Certified Personal Trainer",
-    "description": "ACE Certified Personal Trainer specializing in strength training for women",
-    "url": "https://clairesersunfitness.com/#about",
-    "sameAs": [
-      "https://www.instagram.com/sersunfit/"
-    ],
-    "hasCredential": [
+    "@graph": [
       {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "certification",
-        "name": "ACE Certified Personal Trainer"
+        "@type": "ProfessionalService",
+        "@id": "https://clairesersunfitness.com/#business",
+        "name": "Claire Sersun Fitness",
+        "description": "Online strength coaching for women of all ages and abilities, including women over 60 and neurodivergent individuals.",
+        "url": "https://clairesersunfitness.com",
+        "image": "https://clairesersunfitness.com/images/Headshot.webp",
+        "logo": "https://clairesersunfitness.com/images/Headshot.webp",
+        "areaServed": {
+          "@type": "GeoShape",
+          "name": "Worldwide"
+        },
+        "founder": { "@id": "https://clairesersunfitness.com/#claire" },
+        "provider": { "@id": "https://clairesersunfitness.com/#claire" },
+        "sameAs": [
+          "https://www.instagram.com/sersunfit/"
+        ]
       },
       {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "certification",
-        "name": "500-Hour Comprehensive Pilates Instructor"
+        "@type": "Person",
+        "@id": "https://clairesersunfitness.com/#claire",
+        "name": "Claire Sersun",
+        "jobTitle": "Certified Personal Trainer",
+        "description": "ACE Certified Personal Trainer specializing in strength training for women.",
+        "url": "https://clairesersunfitness.com/about",
+        "image": "https://clairesersunfitness.com/images/Headshot.webp",
+        "worksFor": { "@id": "https://clairesersunfitness.com/#business" },
+        "sameAs": [
+          "https://www.instagram.com/sersunfit/"
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "ACE Certified Personal Trainer"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "500-Hour Comprehensive Pilates Instructor"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "certification",
+            "name": "200-Hour Registered Yoga Teacher"
+          }
+        ]
       },
       {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "certification",
-        "name": "200-Hour Registered Yoga Teacher"
+        "@type": "Service",
+        "@id": "https://clairesersunfitness.com/#coaching-service",
+        "name": "12-Week Strength Coaching Program",
+        "serviceType": "Online Personal Training",
+        "description": "Personalized 12-week strength coaching program including custom workout programming, nutritional guidance, weekly check-ins, and 24/7 support.",
+        "provider": { "@id": "https://clairesersunfitness.com/#claire" },
+        "areaServed": {
+          "@type": "GeoShape",
+          "name": "Worldwide"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://clairesersunfitness.com/#website",
+        "name": "Claire Sersun Fitness",
+        "url": "https://clairesersunfitness.com",
+        "description": "Online strength coaching for women",
+        "publisher": { "@id": "https://clairesersunfitness.com/#business" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://clairesersunfitness.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Who is this coaching program for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This program is designed for women of all ages and fitness levels, including beginners, women over 60, and neurodivergent individuals who want personalized, sustainable strength training."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in the coaching program?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 12-week program includes personalized workout programming via mobile app, nutritional guidance, weekly check-ins, access to a private community, and 24/7 text support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need gym equipment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your program is customized to your available equipment, whether you have a full gym, minimal home equipment, or no equipment at all."
+            }
+          }
+        ]
       }
     ]
-  }
-  </script>
-
-  <!-- Service Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "12-Week Strength Coaching Program",
-    "provider": {
-      "@type": "Person",
-      "name": "Claire Sersun"
-    },
-    "description": "Personalized 12-week strength coaching program including custom workout programming, nutritional guidance, weekly check-ins, and 24/7 support.",
-    "areaServed": "Worldwide",
-    "serviceType": "Online Personal Training"
-  }
-  </script>
-
-  <!-- FAQ Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Who is this coaching program for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "This program is designed for women of all ages and fitness levels, including beginners, women over 40, and neurodivergent individuals who want personalized, sustainable strength training."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is included in the coaching program?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The 12-week program includes personalized workout programming via mobile app, nutritional guidance, weekly check-ins, access to a private community, and 24/7 text support."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need gym equipment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Your program is customized to your available equipment, whether you have a full gym, minimal home equipment, or no equipment at all."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- Website Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Claire Sersun Fitness",
-    "url": "https://clairesersunfitness.com",
-    "description": "Online strength coaching for women"
   }
   </script>
 </head>
