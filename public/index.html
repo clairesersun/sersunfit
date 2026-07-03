@@ -31,19 +31,18 @@
 
   <!-- ===== BASIC SEO ===== -->
   <title>Claire Sersun Fitness | Online Strength Coaching for Women</title>
-  <meta name="description" content="Personalized strength training and sustainable fitness coaching for women. Build lasting capability, confidence, and independence in your body. Serving women of all ages, including those over 60 and neurodivergent individuals." />
-  <meta name="keywords" content="fitness coach, strength training, women's fitness, online coaching, personal trainer, workout plan, neurodivergent fitness, fitness over 60" />
+  <meta name="description" content="Personalized strength training and sustainable fitness coaching for women. Build lasting capability, confidence, and independence in your body. Serving women of all ages, including those over 40 and neurodivergent individuals." />
   <meta name="author" content="Claire Sersun" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://clairesersunfitness.com" />
+  <link rel="canonical" href="https://www.clairesersunfitness.com" />
 
   <!-- ===== OPEN GRAPH (Facebook, LinkedIn) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Claire Sersun Fitness" />
   <meta property="og:title" content="Claire Sersun Fitness | Online Strength Coaching for Women" />
   <meta property="og:description" content="Personalized strength training and sustainable fitness coaching for women ready to build lasting capability, confidence, and independence in their bodies." />
-  <meta property="og:url" content="https://clairesersunfitness.com" />
-  <meta property="og:image" content="https://clairesersunfitness.com/images/Headshot.webp" />
+  <meta property="og:url" content="https://www.clairesersunfitness.com" />
+  <meta property="og:image" content="https://www.clairesersunfitness.com/images/Headshot.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
@@ -52,7 +51,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Claire Sersun Fitness | Online Strength Coaching for Women" />
   <meta name="twitter:description" content="Personalized strength training and sustainable fitness coaching for women ready to build lasting capability." />
-  <meta name="twitter:image" content="https://clairesersunfitness.com/images/Headshot.webp" />
+  <meta name="twitter:image" content="https://www.clairesersunfitness.com/images/Headshot.webp" />
 
   <!-- ===== FAVICON ===== -->
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -66,24 +65,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- ===== FONTS ===== -->
+  <!-- ===== FONTS (non-blocking: preload + async stylesheet, noscript fallback) ===== -->
   <link
+    rel="preload"
+    as="style"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;500&display=swap"
-    rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;500&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=Source+Serif+4:wght@400;500&display=swap"
+    />
+  </noscript>
 
   <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
   <!--
     Single connected @graph so search engines and AI assistants resolve that
     Claire (the Person) IS the provider behind Claire Sersun Fitness.
 
-    HOST: all URLs use non-www to match the canonical in <link rel="canonical">
-    and REACT_APP_SITE_URL in src/config/config.js. If you 301 to www, update
-    every URL/@id here to https://www.clairesersunfitness.com.
+    HOST: canonical host is www (matches <link rel="canonical">, the CNAME, and
+    CONFIG.urls.site). GitHub Pages redirects the apex to www automatically.
 
     LOGO: "logo" temporarily points to the headshot (a real, non-broken asset).
-    Replace /images/logo.png once a dedicated square/wordmark logo (min 112px,
-    on solid background) exists — better for Google knowledge-panel eligibility.
+    Replace it with a dedicated square/wordmark logo (min 112px, on a solid
+    background) once one exists — better for Google knowledge-panel eligibility.
   -->
   <script type="application/ld+json">
   {
@@ -91,31 +102,31 @@
     "@graph": [
       {
         "@type": "ProfessionalService",
-        "@id": "https://clairesersunfitness.com/#business",
+        "@id": "https://www.clairesersunfitness.com/#business",
         "name": "Claire Sersun Fitness",
-        "description": "Online strength coaching for women of all ages and abilities, including women over 60 and neurodivergent individuals.",
-        "url": "https://clairesersunfitness.com",
-        "image": "https://clairesersunfitness.com/images/Headshot.webp",
-        "logo": "https://clairesersunfitness.com/images/Headshot.webp",
+        "description": "Online strength coaching for women of all ages and abilities, including women over 40 and neurodivergent individuals.",
+        "url": "https://www.clairesersunfitness.com",
+        "image": "https://www.clairesersunfitness.com/images/Headshot.webp",
+        "logo": "https://www.clairesersunfitness.com/images/Headshot.webp",
         "areaServed": {
           "@type": "GeoShape",
           "name": "Worldwide"
         },
-        "founder": { "@id": "https://clairesersunfitness.com/#claire" },
-        "provider": { "@id": "https://clairesersunfitness.com/#claire" },
+        "founder": { "@id": "https://www.clairesersunfitness.com/#claire" },
+        "provider": { "@id": "https://www.clairesersunfitness.com/#claire" },
         "sameAs": [
           "https://www.instagram.com/sersunfit/"
         ]
       },
       {
         "@type": "Person",
-        "@id": "https://clairesersunfitness.com/#claire",
+        "@id": "https://www.clairesersunfitness.com/#claire",
         "name": "Claire Sersun",
         "jobTitle": "Certified Personal Trainer",
         "description": "ACE Certified Personal Trainer specializing in strength training for women.",
-        "url": "https://clairesersunfitness.com/about",
-        "image": "https://clairesersunfitness.com/images/Headshot.webp",
-        "worksFor": { "@id": "https://clairesersunfitness.com/#business" },
+        "url": "https://www.clairesersunfitness.com/about",
+        "image": "https://www.clairesersunfitness.com/images/Headshot.webp",
+        "worksFor": { "@id": "https://www.clairesersunfitness.com/#business" },
         "sameAs": [
           "https://www.instagram.com/sersunfit/"
         ],
@@ -139,11 +150,11 @@
       },
       {
         "@type": "Service",
-        "@id": "https://clairesersunfitness.com/#coaching-service",
+        "@id": "https://www.clairesersunfitness.com/#coaching-service",
         "name": "12-Week Strength Coaching Program",
         "serviceType": "Online Personal Training",
         "description": "Personalized 12-week strength coaching program including custom workout programming, nutritional guidance, weekly check-ins, and 24/7 support.",
-        "provider": { "@id": "https://clairesersunfitness.com/#claire" },
+        "provider": { "@id": "https://www.clairesersunfitness.com/#claire" },
         "areaServed": {
           "@type": "GeoShape",
           "name": "Worldwide"
@@ -151,22 +162,22 @@
       },
       {
         "@type": "WebSite",
-        "@id": "https://clairesersunfitness.com/#website",
+        "@id": "https://www.clairesersunfitness.com/#website",
         "name": "Claire Sersun Fitness",
-        "url": "https://clairesersunfitness.com",
+        "url": "https://www.clairesersunfitness.com",
         "description": "Online strength coaching for women",
-        "publisher": { "@id": "https://clairesersunfitness.com/#business" }
+        "publisher": { "@id": "https://www.clairesersunfitness.com/#business" }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://clairesersunfitness.com/#faq",
+        "@id": "https://www.clairesersunfitness.com/#faq",
         "mainEntity": [
           {
             "@type": "Question",
             "name": "Who is this coaching program for?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "This program is designed for women of all ages and fitness levels, including beginners, women over 60, and neurodivergent individuals who want personalized, sustainable strength training."
+              "text": "This program is designed for women of all ages and fitness levels, including beginners, women over 40, and neurodivergent individuals who want personalized, sustainable strength training."
             }
           },
           {

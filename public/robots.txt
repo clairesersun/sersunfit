@@ -1,15 +1,39 @@
 # ============================================
 # ROBOTS.TXT - Claire Sersun Fitness
 # ============================================
-# Instructions for search engine crawlers
-# ============================================
 
-# Allow all crawlers
+# Search engines — full access
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://clairesersunfitness.com/sitemap.xml
+# AI assistants & answer engines — explicitly allowed
+# (these power ChatGPT, Perplexity, Claude, Google AI, Bing Copilot citations)
+User-agent: GPTBot
+Allow: /
 
-# Crawl delay (be nice to the server)
-Crawl-delay: 1
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://www.clairesersunfitness.com/sitemap.xml
+
+# Guide for AI assistants
+# See: https://www.clairesersunfitness.com/llms.txt

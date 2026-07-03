@@ -28,7 +28,7 @@ const CONFIG = {
     /** Discovery call booking URL for corporate prospects */
     discoveryCall: process.env.REACT_APP_DISCOVERY_CALL_URL || 'mailto:claire.sersun@gmail.com?subject=Executive%20Fitness%20Program%20Inquiry',
     /** Base site URL for SEO and canonical links */
-    site: process.env.REACT_APP_SITE_URL || 'https://clairesersunfitness.com',
+    site: process.env.REACT_APP_SITE_URL || 'https://www.clairesersunfitness.com',
   },
 
   /**

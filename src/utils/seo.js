@@ -33,7 +33,7 @@ export const updatePageMeta = ({
   description,
   keywords,
   canonical,
-  ogImage = 'https://clairesersunfitness.com/images/Headshot.webp',
+  ogImage = 'https://www.clairesersunfitness.com/images/Headshot.webp',
 }) => {
   // Update document title
   document.title = title;
@@ -41,10 +41,9 @@ export const updatePageMeta = ({
   // Update or create meta description
   updateMetaTag('name', 'description', description);
 
-  // Update or create meta keywords (if provided)
-  if (keywords) {
-    updateMetaTag('name', 'keywords', keywords);
-  }
+  // NOTE: meta keywords intentionally not emitted — ignored by all major
+  // search engines. The `keywords` field in PAGE_SEO is kept only as internal
+  // documentation of each page's target terms.
 
   // Update canonical URL (if provided)
   if (canonical) {
@@ -114,51 +113,51 @@ export const PAGE_SEO = {
   home: {
     title: 'Claire Sersun Fitness | Online Strength Coaching for Women',
     description:
-      'Personalized strength training and sustainable fitness coaching for women. Build lasting capability, confidence, and independence in your body. Serving women of all ages, including those over 60 and neurodivergent individuals.',
+      'Personalized strength training and sustainable fitness coaching for women. Build lasting capability, confidence, and independence in your body. Serving women of all ages, including those over 40 and neurodivergent individuals.',
     keywords:
-      'fitness coach, strength training, women\'s fitness, online coaching, personal trainer, workout plan, neurodivergent fitness, fitness over 60',
-    canonical: 'https://clairesersunfitness.com',
-    ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
+      'fitness coach, strength training, women\'s fitness, online coaching, personal trainer, workout plan, neurodivergent fitness, fitness over 40',
+    canonical: 'https://www.clairesersunfitness.com',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
   about: {
     title: 'About Claire Sersun | ACE Certified Personal Trainer',
     description:
       'Meet Claire Sersun, ACE Certified Personal Trainer with over a decade of movement education experience. Specializing in strength training for women of all ages.',
     keywords: 'Claire Sersun, personal trainer, ACE certified, Pilates instructor, yoga teacher',
-    canonical: 'https://clairesersunfitness.com/about',
-    ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
+    canonical: 'https://www.clairesersunfitness.com/about',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
   coaching: {
     title: 'Capable Body Coaching | 12-Week Strength Program | Claire Sersun Fitness',
     description:
       'Build strength, confidence, and tools you keep for life. 12-week personalized coaching with custom workouts, nutrition guidance, weekly check-ins, and 24/7 support. Learn skills for independent training.',
     keywords: 'capable body coaching, coaching program, online training, personalized workouts, strength coaching, independent fitness',
-    canonical: 'https://clairesersunfitness.com/coaching',
-    ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
+    canonical: 'https://www.clairesersunfitness.com/coaching',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
   contact: {
     title: 'Contact Claire Sersun | Online Fitness Coach',
     description:
       'Get in touch with Claire Sersun for coaching inquiries. Apply for personalized strength training or connect on Instagram.',
     keywords: 'contact, coaching inquiries, personal trainer contact',
-    canonical: 'https://clairesersunfitness.com/contact',
-    ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
+    canonical: 'https://www.clairesersunfitness.com/contact',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
   resources: {
     title: 'Fitness Resources & Training Guides | Claire Sersun Fitness',
     description:
       'Training guides, digital products, and helpful resources to support your fitness journey. Expert-designed programs for strength and capability.',
     keywords: 'fitness resources, training guides, workout programs, digital fitness products',
-    canonical: 'https://clairesersunfitness.com/resources',
-    ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
+    canonical: 'https://www.clairesersunfitness.com/resources',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
   blog: {
     title: 'Blog | Claire Sersun Fitness',
     description:
       'Thoughts on strength training, movement, and building a capable life. Evidence-based articles for women ready to get stronger.',
     keywords: 'fitness blog, strength training articles, women fitness tips, movement education',
-    canonical: 'https://clairesersunfitness.com/blog',
-    ogImage: 'https://clairesersunfitness.com/images/Headshot.webp',
+    canonical: 'https://www.clairesersunfitness.com/blog',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
   'kilimanjaro-training-plan': {
     title: 'Kilimanjaro Training Plan: 6-Month Strength-First Blueprint for Hikers | $17',
@@ -166,8 +165,24 @@ export const PAGE_SEO = {
       'Train for Kilimanjaro with confidence. Strength training, hiking conditioning, and breathwork designed for busy women. 6-month + 12-week plans. Instant PDF access.',
     keywords:
       'kilimanjaro training plan, how to train for kilimanjaro, mount kilimanjaro training, kilimanjaro preparation guide, hiking training program, kilimanjaro workout plan',
-    canonical: 'https://clairesersunfitness.com/kilimanjaro-training-plan',
-    ogImage: 'https://clairesersunfitness.com/images/Kilimanjaro.webp',
+    canonical: 'https://www.clairesersunfitness.com/kilimanjaro-training-plan',
+    ogImage: 'https://www.clairesersunfitness.com/images/Kilimanjaro.webp',
+  },
+  corporate: {
+    title: 'Corporate Wellness & Executive Fitness Programs | Claire Sersun Fitness',
+    description:
+      'Strength and wellness programs for teams and executives. Boost energy, focus, and resilience with personalized coaching built for demanding schedules.',
+    keywords: 'corporate wellness, executive fitness, workplace wellness, team fitness program, executive coaching',
+    canonical: 'https://www.clairesersunfitness.com/corporate',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
+  },
+  privacy: {
+    title: 'Privacy Policy | Claire Sersun Fitness',
+    description:
+      'How Claire Sersun Fitness collects, uses, and protects your personal information.',
+    keywords: 'privacy policy, data protection',
+    canonical: 'https://www.clairesersunfitness.com/privacy',
+    ogImage: 'https://www.clairesersunfitness.com/images/Headshot.webp',
   },
 };
 
