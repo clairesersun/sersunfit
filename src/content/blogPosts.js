@@ -36,6 +36,7 @@ const formatPost = (row) => ({
     if (Array.isArray(row.sources)) return row.sources;
     try { return JSON.parse(row.sources); } catch { return []; }
   })(),
+  schema: row.schema || null,
   created_at: row.created_at,
 });
 

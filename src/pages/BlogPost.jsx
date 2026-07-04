@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { THEME } from '../styles/theme';
 import CONFIG from '../config/config';
 import { createStyles } from './styles';
 import { fetchPostBySlug } from '../content/blogPosts';
-import { updatePageMeta } from '../utils/seo';
+import { updatePageMeta, setJsonLd, removeJsonLd } from '../utils/seo';
 
 import {
   RevealOnScroll,
@@ -19,6 +20,20 @@ import { Divider, OrganicShape, Button } from '../components/ui';
  * If it contains common HTML tags, treat as HTML.
  */
 const isHTML = (str) => /<(p|h[1-6]|div|ul|ol|li|br|img|a|span|strong|em)\b/i.test(str);
+
+/**
+ * Extract the first image URL from the post body for the social-share (OG)
+ * image. Returns an absolute URL, or null to fall back to the site default.
+ */
+const firstImageUrl = (body) => {
+  if (!body) return null;
+  const md = body.match(/!\[[^\]]*\]\((\/?[^)\s]+\.(?:webp|jpe?g|png))\)/i);
+  const html = body.match(/<img[^>]+src=["']([^"']+\.(?:webp|jpe?g|png))["']/i);
+  const url = (md && md[1]) || (html && html[1]);
+  if (!url) return null;
+  if (/^https?:\/\//i.test(url)) return url;
+  return `${CONFIG.urls.site}${url.startsWith('/') ? '' : '/'}${url}`;
+};
 
 const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
   const s = createStyles(theme);
@@ -45,9 +60,13 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
           title: `${result.title} | Claire Sersun Fitness`,
           description: result.excerpt,
           canonical: `${CONFIG.urls.site}/blog/${result.slug}`,
+          ogImage: firstImageUrl(result.content) || undefined,
         });
+        setJsonLd(result.schema);
       }
     });
+
+    return () => removeJsonLd();
   }, [slug]);
 
   // Shared prose styles for both markdown and HTML content
@@ -156,6 +175,7 @@ const BlogPostPage = ({ theme, isDarkMode, onNavigate }) => {
           ) : (
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
               components={{
                 h1: ({ children }) => <h2 style={{ ...s.h2, marginTop: '2.5rem' }}>{children}</h2>,
                 h2: ({ children }) => <h2 style={{ ...s.h2, marginTop: '2.5rem' }}>{children}</h2>,

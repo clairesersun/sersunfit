@@ -62,6 +62,34 @@ export const updatePageMeta = ({
 };
 
 /**
+ * Inject (or replace) a JSON-LD structured-data script in <head>.
+ * Pass a plain object or JSON string. Call with a falsy value to clear.
+ *
+ * @param {Object|string|null} schema - schema.org JSON-LD
+ * @param {string} [id] - element id, so it can be replaced/removed
+ */
+export const setJsonLd = (schema, id = 'blog-jsonld') => {
+  if (typeof document === 'undefined') return;
+  removeJsonLd(id);
+  if (!schema) return;
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = id;
+  script.text = typeof schema === 'string' ? schema : JSON.stringify(schema);
+  document.head.appendChild(script);
+};
+
+/**
+ * Remove a previously injected JSON-LD script by id.
+ * @param {string} [id]
+ */
+export const removeJsonLd = (id = 'blog-jsonld') => {
+  if (typeof document === 'undefined') return;
+  const el = document.getElementById(id);
+  if (el) el.remove();
+};
+
+/**
  * Helper function to update or create a meta tag
  *
  * @param {string} attribute - Attribute name ('name' or 'property')
