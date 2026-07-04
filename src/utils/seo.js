@@ -31,7 +31,6 @@
 export const updatePageMeta = ({
   title,
   description,
-  keywords,
   canonical,
   ogImage = 'https://www.clairesersunfitness.com/images/Headshot.webp',
 }) => {
